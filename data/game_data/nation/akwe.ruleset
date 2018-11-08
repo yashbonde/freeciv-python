@@ -1,0 +1,63 @@
+[nation_akwe]
+
+name=_("Akwe")
+plural=_("?plural:Akwe")
+groups="American"
+
+legend=_("")
+
+leader=
+ "Apowe",
+ "Warodi",
+ "Warinatsé"
+
+leader_sex = "Male", "Male", "Male"
+
+ruler_titles = { "government",      "male_title",        "female_title"
+                 "Monarchy",       _("He'a"),            _("?female:He'a")
+               }
+
+flag         = "akwe"
+flag_alt     = "-"
+city_style   = "Tropical"
+
+init_techs=""
+init_buildings=""
+init_government="Despotism"
+init_units=""
+
+civilwar_nations="tupi", "tairona", "brazilian"
+
+cities =
+ "Parawadzaradze",
+ "Areões",
+ "Batovi",
+ "Funil",
+ "ZéBrito",
+ "Pe’azurupré",
+ "Maraiwatsede",
+ "Parabubure",
+ "Ubawawe",
+ "Isorepre",
+ "Ete’rau’rawawe",
+ "Wabdzerewapre",
+ "Aröbönipó",
+ "Wede’u",
+ "Kuluene",
+ "Canarana",
+ "Etéñitépa",
+ "Tanguro",
+ "Wedédze",
+ "Casura",
+ "Ötõ",
+ "Jambimbu",
+ "Gurupi",
+ "Itacaja",
+ "Croa",
+ "Paraío",
+ "Baixão",
+ "Traíra",
+ "Ponte",
+ "Itapiratins",
+ "Guaral",
+ "Arapoema"

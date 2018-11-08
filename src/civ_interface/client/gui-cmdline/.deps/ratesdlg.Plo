@@ -1,0 +1,7 @@
+ratesdlg.lo: ratesdlg.c ../../config.h ratesdlg.h ../include/ratesdlg_g.h
+
+../../config.h:
+
+ratesdlg.h:
+
+../include/ratesdlg_g.h:

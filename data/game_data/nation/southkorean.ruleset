@@ -1,0 +1,111 @@
+[nation_southkorean]
+
+name=_("South Korean")
+plural=_("?plural:South Koreans")
+groups="Modern", "Asian"
+legend=_("")
+leader=
+ "Kim Gu",
+ "Rhee Syng-man",
+ "Park Chung-hee",
+ "Kim Dae-jung",
+ "Roh Moo-hyun",
+ "Park Geun-hye"
+leader_sex="Male", "Male", "Male", "Male", "Male", "Female"
+
+flag="korea"
+flag_alt = "-"
+city_style = "Asian"
+
+init_techs=""
+init_buildings=""
+init_government="Despotism"
+init_units=""
+
+civilwar_nations = "northkorean"
+
+; Sorted according to 2005 population
+cities =
+ "Seoul",
+ "Busan",
+ "Incheon",
+ "Daegu",
+ "Daejeon",
+ "Gwangju",
+ "Ulsan",
+ "Suwon",
+ "Seongnam",
+ "Goyang",
+ "Bucheon",
+ "Yongin",
+ "Ansan",
+ "Cheongju",
+ "Anyang",
+ "Jeonju",
+ "Pohang",
+ "Cheonan",
+ "Changwon",
+ "Gimhae",
+ "Namyangju",
+ "Masan",
+ "Uijeongbu",
+ "Siheung",
+ "Pyeongtaek",
+ "Gumi",
+ "Jinju",
+ "Gwangmyeong",
+ "Iksan",
+ "Yeosu",
+ "Jeju",
+ "Hwaseong",
+ "Wonju",
+ "Gyeongju",
+ "Gunpo",
+ "Suncheon",
+ "Gunsan",
+ "Paju",
+ "Chuncheon",
+ "Mokpo",
+ "Gangneung",
+ "Gyeongsan",
+ "Yangsan",
+ "Gimpo",
+ "Chungju",
+ "Asan",
+ "Guri",
+ "Geoje",
+ "Icheon",
+ "Andong",
+ "Jinhae",
+ "Anseong",
+ "Yangju",
+ "Pocheon",
+ "Seosan",
+ "Uiwang",
+ "Gimcheon",
+ "Jecheon",
+ "Gwangyang",
+ "Nonsan",
+ "Tongyeong",
+ "Hanam",
+ "Jeongeup",
+ "Gongju",
+ "Osan",
+ "Yeongju",
+ "Miryang",
+ "Sacheon",
+ "Sangju",
+ "Yeongcheon",
+ "Boryeong",
+ "Gimje",
+ "Donghae",
+ "Naju",
+ "Namwon",
+ "Sokcho",
+ "Seogwipo",
+ "Dongducheon",
+ "Mungyeong",
+ "Samcheok",
+ "Taebaek",
+ "Gyeryong",
+ "Gokseong"

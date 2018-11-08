@@ -1,0 +1,263 @@
+agents.lo: agents.c ../../config.h /usr/include/assert.h \
+ /usr/include/features.h /usr/include/bits/predefs.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h /usr/include/string.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h \
+ /usr/include/xlocale.h ../../utility/capability.h ../../utility/shared.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/sys/types.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/time.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/bits/time.h \
+ /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/alloca.h ../../utility/support.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/wchar.h /usr/include/bits/stdio_lim.h \
+ /usr/include/bits/sys_errlist.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdbool.h \
+ ../../utility/speclist.h ../../utility/genlist.h ../../utility/mem.h \
+ ../../utility/hash.h ../../utility/iterator.h ../../utility/log.h \
+ ../../utility/mem.h ../../utility/timing.h ../client_main.h \
+ ../../common/fc_types.h ../../utility/shared.h ../../common/packets.h \
+ ../../common/connection.h /usr/include/sys/time.h \
+ ../../common/fc_types.h ../../utility/speclist.h ../../utility/specvec.h \
+ ../../common/diptreaty.h ../../common/effects.h ../../common/events.h \
+ ../../utility/specenum_gen.h ../../common/improvement.h \
+ ../../common/requirements.h ../../common/tech.h ../../common/terrain.h \
+ ../../common/unittype.h ../../common/map.h /usr/include/math.h \
+ /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h \
+ /usr/include/bits/huge_vall.h /usr/include/bits/inf.h \
+ /usr/include/bits/nan.h /usr/include/bits/mathdef.h \
+ /usr/include/bits/mathcalls.h ../../common/tile.h ../../common/base.h \
+ ../../common/player.h ../../common/city.h ../../common/unitlist.h \
+ ../../common/unit.h ../../common/vision.h ../../common/worklist.h \
+ ../../utility/registry.h ../../utility/ioz.h ../../common/nation.h \
+ ../../utility/iterator.h ../../common/spaceship.h ../../common/team.h \
+ ../../common/packets_gen.h ../../common/worklist.h \
+ ../include/mapctrl_g.h ../mapctrl_common.h ../../common/map.h \
+ ../control.h ../../common/unitlist.h cma_core.h ../../common/aicore/cm.h \
+ ../../common/city.h ../attribute.h cma_fec.h sha.h agents.h
+
+../../config.h:
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h:
+
+/usr/include/string.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:
+
+/usr/include/xlocale.h:
+
+../../utility/capability.h:
+
+../../utility/shared.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+../../utility/support.h:
+
+/usr/include/dirent.h:
+
+/usr/include/bits/dirent.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/bits/stat.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdbool.h:
+
+../../utility/speclist.h:
+
+../../utility/genlist.h:
+
+../../utility/mem.h:
+
+../../utility/hash.h:
+
+../../utility/iterator.h:
+
+../../utility/log.h:
+
+../../utility/mem.h:
+
+../../utility/timing.h:
+
+../client_main.h:
+
+../../common/fc_types.h:
+
+../../utility/shared.h:
+
+../../common/packets.h:
+
+../../common/connection.h:
+
+/usr/include/sys/time.h:
+
+../../common/fc_types.h:
+
+../../utility/speclist.h:
+
+../../utility/specvec.h:
+
+../../common/diptreaty.h:
+
+../../common/effects.h:
+
+../../common/events.h:
+
+../../utility/specenum_gen.h:
+
+../../common/improvement.h:
+
+../../common/requirements.h:
+
+../../common/tech.h:
+
+../../common/terrain.h:
+
+../../common/unittype.h:
+
+../../common/map.h:
+
+/usr/include/math.h:
+
+/usr/include/bits/huge_val.h:
+
+/usr/include/bits/huge_valf.h:
+
+/usr/include/bits/huge_vall.h:
+
+/usr/include/bits/inf.h:
+
+/usr/include/bits/nan.h:
+
+/usr/include/bits/mathdef.h:
+
+/usr/include/bits/mathcalls.h:
+
+../../common/tile.h:
+
+../../common/base.h:
+
+../../common/player.h:
+
+../../common/city.h:
+
+../../common/unitlist.h:
+
+../../common/unit.h:
+
+../../common/vision.h:
+
+../../common/worklist.h:
+
+../../utility/registry.h:
+
+../../utility/ioz.h:
+
+../../common/nation.h:
+
+../../utility/iterator.h:
+
+../../common/spaceship.h:
+
+../../common/team.h:
+
+../../common/packets_gen.h:
+
+../../common/worklist.h:
+
+../include/mapctrl_g.h:
+
+../mapctrl_common.h:
+
+../../common/map.h:
+
+../control.h:
+
+../../common/unitlist.h:
+
+cma_core.h:
+
+../../common/aicore/cm.h:
+
+../../common/city.h:
+
+../attribute.h:
+
+cma_fec.h:
+
+sha.h:
+
+agents.h:

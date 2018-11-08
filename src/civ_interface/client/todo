@@ -1,0 +1,74 @@
+- for the following, allow action that sets new value same as old value (thereby allowing for continuation of current action), but check for this in the received command, and don't do any internal actions.  Calling the corresponding "set" function might have side effects such as loss of shields due to "change", etc.
+	nation gov change
+	city gov change
+	city production change
+
++ movement restrictions (ocean, etc)
+	unit_has_orders (unit)
+	can_unit_paradrop (unit)
+	can_unit_bombard (unit)
+	can_unit_do_autosettlers (unit)
+	can_unit_build_city (unit)
+	is_attack_unit (unit)
+	can_unit_move_to_tile (unit, tile, false)
+
+	can_unit_do_activity (unit, ACTIVITY_MINE) 
+	can_unit_do_activity (unit, ACTIVITY_IRRIGATE)
+	can_unit_do_activity (unit, ACTIVITY_ROAD) | can_unit_do_activity (unit, ACTIVITY_RAILROAD)
+	can_unit_do_activity (unit, ACTIVITY_SENTRY)
+	can_unit_do_activity (unit, ACTIVITY_TRANSFORM)
+	can_unit_do_activity (unit, ACTIVITY_FORTIFY)
+	can_unit_do_activity (unit, ACTIVITY_EXPLORE)
+
++ rivers
+	tile_has_special (tile, S_RIVER)
+
++ huts
+	tile_has_special (tile, S_HUT)
+
++ other player units/cities on grid
++ player government
++ unit health
++ city governance
++ city size increase time
++ city occupants
++ tech
++ save / reload
+
+-----------------------------
+
+- reformat state:
+	- per unit state as list of (action, feature) tuple
+- assume all units/cities/nation independent
+- no "strategy" goals - i.e. "max food", "max production", "max gold", etc...
+
+
+* observe
+gc  connect
+gs  save-game
+gl  load-game
+g>  turn-done
+
+pg  set-gov
+pr  research
+uo  unit-move
+ug  unit-goto
+ux  unit-autoexplore
+ua  unit-autosettle
+ub  unit-build-city
+  // unit-build-wonder
+  // unit-disband
+  // unit-clean-fallout
+uf  unit-fortify
+  // unit-build-fortress
+uh  unit-set-homecity
+ui  unit-irrigate
+um  unit-mine
+ur  unit-build-road
+us  unit-sentry
+ut  unit-transform
+
+cg  city-set-gov
+cb  city-build-change
+  // city-build-add
+

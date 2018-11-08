@@ -1,0 +1,10 @@
+pages.lo: pages.c ../../config.h ../include/connectdlg_g.h pages.h \
+ ../include/pages_g.h
+
+../../config.h:
+
+../include/connectdlg_g.h:
+
+pages.h:
+
+../include/pages_g.h:

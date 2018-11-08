@@ -1,0 +1,7 @@
+menu.lo: menu.c ../../config.h menu.h ../include/menu_g.h
+
+../../config.h:
+
+menu.h:
+
+../include/menu_g.h:

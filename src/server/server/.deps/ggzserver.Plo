@@ -1,0 +1,3 @@
+ggzserver.lo: ggzserver.c ../config.h
+
+../config.h:

@@ -1,0 +1,73 @@
+[nation_breton]
+
+name=_("Breton")
+plural=_("?plural:Bretons")
+groups="Medieval", "European"
+legend=_("")
+
+leader=
+"Frañsez I",
+"Nevenoe",
+"Alan Iañ",
+"Salaün",
+"Paskwezhen",
+"Konan II",
+"Waroch",
+"Arzhur",
+"Yann II",
+"Hawise",
+"Konstanza",
+"Anna",
+"Klaoda"
+leader_sex="Male", "Male", "Male", "Male", "Male", "Male", "Male", "Male", "Male", "Female", "Female", "Female", "Female"
+
+flag = "brittany"
+flag_alt = "-"
+city_style = "Celtic"
+
+ruler_titles = { "government", "male_title", "female_title"
+		"Despotism", _("Dug"), _("Dugez")
+		"Monarchy", _("Roue"), _("Rouanez")
+}
+
+init_techs=""
+init_buildings=""
+init_government="Despotism"
+init_units=""
+civilwar_nations="Cornish", "Welsh", "French"
+
+cities =
+"Roazhon", ; Rennes
+"Naoned", ; Nantes
+"Brest",
+"Kemper", ; Quimper
+"Gwened", ; Vannes
+"Lannuon", ; Lannion
+"Plañvour", ; Ploemeur
+"Sant-Maloù", ; Saint-Malo
+"Treger", ; Tréguier
+"Bronn", ; Broons
+"Dinan",
+"Sant-Brieg", ; Saint-Brieuc
+"Kallag", ; Callac
+"Konk Kerne", ; Concarneau
+"Felger", ; Fougères
+"Lanester",
+"Sant-Nazer", ; Saint-Nazaire
+"An Oriant", ; Lorient
+"Redon",
+"Pondi", ; Pontivy
+"Karnag", ; Carnac
+"Gwitreg", ; Vitré
+"Ankiniz", ; Ancenis
+"Erdeven",
+"Bangor",
+"Lambaol", ; Lampaul
+"Montroulez", ; Morlaix
+"Kermoroc'h",
+"Douar An Enez", ; Douarnenez
+"Goneg", ; Gosné
+"Klison", ; Clisson
+"Brignogan",
+"Plougastell-Daoulaz", ; Plougastel-Daoulas
+"Ruca"

@@ -1,0 +1,63 @@
+[nation_khwarezmian]
+
+name=_("Khwarezmian")
+plural=_("?plural:Khwarezmians")
+groups="Asian", "Ancient"
+
+legend=_("")
+
+leader=
+ "Pharasmanes",
+ "Hystaspes",
+ "Phrataphernes",
+ "Artav",
+ "Vishtapa"
+
+leader_sex = "Male", "Male", "Male", "Male", "Male"
+
+ruler_titles = { "government",      "male_title",        "female_title"
+                 "Monarchy",        _("Shah"),           _("Shahbanu")
+               }
+
+flag         = "khwarezm"
+flag_alt     = "-"
+city_style   = "Babylonian"
+
+init_techs=""
+init_buildings=""
+init_government="Despotism"
+init_units=""
+
+civilwar_nations="persian", "tocharian"
+
+cities =
+ "Gurganj",
+ "Kath",
+ "Samarkand",
+ "Chach",
+ "Sarazm",
+ "Balkh",
+ "Khiveh",
+ "Bukhara",
+ "Khalchayan",
+ "Otrar",
+ "Dzanbas-Kala",
+ "Khujand",
+ "Shahrisadz",
+ "Kesh",
+ "Chirik-Rabat",
+ "Merv",
+ "Giaur-Kala",
+ "Hujeli",
+ "Khavakend",
+ "Zaman Baba",
+ "Sanjan",
+ "Zeravshan",
+ "Usrushana",
+ "Toprak-Kala",
+ "Nakhshab",
+ "Karmana",
+ "Koy-Krylgan-Kala",
+ "Tagisken",
+ "Nukus",
+ "Talas"

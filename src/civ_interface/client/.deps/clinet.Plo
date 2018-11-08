@@ -1,0 +1,423 @@
+clinet.lo: clinet.c ../config.h /usr/include/assert.h \
+ /usr/include/features.h /usr/include/bits/predefs.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h \
+ /usr/include/errno.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/stdio.h /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/xlocale.h /usr/include/sys/types.h /usr/include/time.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/bits/time.h \
+ /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/alloca.h /usr/include/string.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/stdint.h \
+ /usr/include/bits/wchar.h /usr/include/sys/socket.h \
+ /usr/include/sys/uio.h /usr/include/bits/uio.h \
+ /usr/include/bits/socket.h /usr/include/bits/sockaddr.h \
+ /usr/include/asm/socket.h /usr/include/asm-generic/socket.h \
+ /usr/include/asm/sockios.h /usr/include/asm-generic/sockios.h \
+ /usr/include/bits/in.h /usr/include/netdb.h /usr/include/rpc/netdb.h \
+ /usr/include/bits/siginfo.h /usr/include/bits/netdb.h /usr/include/pwd.h \
+ /usr/include/sys/time.h /usr/include/sys/utsname.h \
+ /usr/include/bits/utsname.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/getopt.h ../common/capstr.h \
+ ../common/dataio.h ../utility/shared.h ../utility/support.h \
+ /usr/include/dirent.h /usr/include/bits/dirent.h \
+ /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h \
+ /usr/include/linux/limits.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdbool.h \
+ ../utility/speclist.h ../utility/genlist.h ../utility/mem.h \
+ ../utility/fcintl.h /usr/include/locale.h /usr/include/bits/locale.h \
+ /usr/include/libintl.h ../utility/hash.h ../utility/shared.h \
+ ../utility/iterator.h ../utility/log.h ../utility/mem.h \
+ ../utility/netintf.h ../utility/ioz.h ../utility/registry.h \
+ ../utility/support.h ../common/game.h ../utility/timing.h \
+ ../common/connection.h ../common/fc_types.h ../utility/speclist.h \
+ ../utility/specvec.h ../common/player.h ../common/city.h \
+ ../common/improvement.h ../common/requirements.h ../common/tech.h \
+ ../common/terrain.h ../common/unittype.h ../common/unitlist.h \
+ ../common/unit.h ../common/base.h ../common/vision.h \
+ ../common/worklist.h ../common/nation.h ../utility/iterator.h \
+ ../common/spaceship.h ../common/packets.h ../common/diptreaty.h \
+ ../common/effects.h ../common/events.h ../utility/specenum_gen.h \
+ ../common/map.h /usr/include/math.h /usr/include/bits/huge_val.h \
+ /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
+ /usr/include/bits/inf.h /usr/include/bits/nan.h \
+ /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
+ ../common/tile.h ../common/team.h ../common/packets_gen.h \
+ ../common/packets.h ../common/version.h agents/agents.h \
+ ../common/fc_types.h attribute.h include/chatline_g.h chatline_common.h \
+ ../common/featured_text.h client_main.h ../common/worklist.h climisc.h \
+ ../common/events.h ../common/unittype.h ../common/unitlist.h \
+ connectdlg_common.h include/connectdlg_g.h include/dialogs_g.h \
+ ../common/nation.h ../common/terrain.h ggzclient.h include/ggz_g.h \
+ include/gui_main_g.h mapview_common.h ../common/map.h include/colors_g.h \
+ colors_common.h tilespec.h ../common/city.h options.h include/menu_g.h \
+ include/messagewin_g.h messagewin_common.h packhand.h packhand_gen.h \
+ include/pages_g.h include/plrdlg_g.h plrdlg_common.h ../common/player.h \
+ include/repodlgs_g.h repodlgs_common.h ../common/improvement.h \
+ citydlg_common.h clinet.h
+
+../config.h:
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/errno.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/stdio.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/string.h:
+
+/usr/include/arpa/inet.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/sys/socket.h:
+
+/usr/include/sys/uio.h:
+
+/usr/include/bits/uio.h:
+
+/usr/include/bits/socket.h:
+
+/usr/include/bits/sockaddr.h:
+
+/usr/include/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/bits/in.h:
+
+/usr/include/netdb.h:
+
+/usr/include/rpc/netdb.h:
+
+/usr/include/bits/siginfo.h:
+
+/usr/include/bits/netdb.h:
+
+/usr/include/pwd.h:
+
+/usr/include/sys/time.h:
+
+/usr/include/sys/utsname.h:
+
+/usr/include/bits/utsname.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+../common/capstr.h:
+
+../common/dataio.h:
+
+../utility/shared.h:
+
+../utility/support.h:
+
+/usr/include/dirent.h:
+
+/usr/include/bits/dirent.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/bits/stat.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdbool.h:
+
+../utility/speclist.h:
+
+../utility/genlist.h:
+
+../utility/mem.h:
+
+../utility/fcintl.h:
+
+/usr/include/locale.h:
+
+/usr/include/bits/locale.h:
+
+/usr/include/libintl.h:
+
+../utility/hash.h:
+
+../utility/shared.h:
+
+../utility/iterator.h:
+
+../utility/log.h:
+
+../utility/mem.h:
+
+../utility/netintf.h:
+
+../utility/ioz.h:
+
+../utility/registry.h:
+
+../utility/support.h:
+
+../common/game.h:
+
+../utility/timing.h:
+
+../common/connection.h:
+
+../common/fc_types.h:
+
+../utility/speclist.h:
+
+../utility/specvec.h:
+
+../common/player.h:
+
+../common/city.h:
+
+../common/improvement.h:
+
+../common/requirements.h:
+
+../common/tech.h:
+
+../common/terrain.h:
+
+../common/unittype.h:
+
+../common/unitlist.h:
+
+../common/unit.h:
+
+../common/base.h:
+
+../common/vision.h:
+
+../common/worklist.h:
+
+../common/nation.h:
+
+../utility/iterator.h:
+
+../common/spaceship.h:
+
+../common/packets.h:
+
+../common/diptreaty.h:
+
+../common/effects.h:
+
+../common/events.h:
+
+../utility/specenum_gen.h:
+
+../common/map.h:
+
+/usr/include/math.h:
+
+/usr/include/bits/huge_val.h:
+
+/usr/include/bits/huge_valf.h:
+
+/usr/include/bits/huge_vall.h:
+
+/usr/include/bits/inf.h:
+
+/usr/include/bits/nan.h:
+
+/usr/include/bits/mathdef.h:
+
+/usr/include/bits/mathcalls.h:
+
+../common/tile.h:
+
+../common/team.h:
+
+../common/packets_gen.h:
+
+../common/packets.h:
+
+../common/version.h:
+
+agents/agents.h:
+
+../common/fc_types.h:
+
+attribute.h:
+
+include/chatline_g.h:
+
+chatline_common.h:
+
+../common/featured_text.h:
+
+client_main.h:
+
+../common/worklist.h:
+
+climisc.h:
+
+../common/events.h:
+
+../common/unittype.h:
+
+../common/unitlist.h:
+
+connectdlg_common.h:
+
+include/connectdlg_g.h:
+
+include/dialogs_g.h:
+
+../common/nation.h:
+
+../common/terrain.h:
+
+ggzclient.h:
+
+include/ggz_g.h:
+
+include/gui_main_g.h:
+
+mapview_common.h:
+
+../common/map.h:
+
+include/colors_g.h:
+
+colors_common.h:
+
+tilespec.h:
+
+../common/city.h:
+
+options.h:
+
+include/menu_g.h:
+
+include/messagewin_g.h:
+
+messagewin_common.h:
+
+packhand.h:
+
+packhand_gen.h:
+
+include/pages_g.h:
+
+include/plrdlg_g.h:
+
+plrdlg_common.h:
+
+../common/player.h:
+
+include/repodlgs_g.h:
+
+repodlgs_common.h:
+
+../common/improvement.h:
+
+citydlg_common.h:
+
+clinet.h:

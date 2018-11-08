@@ -1,0 +1,50 @@
+[nation_tunisian]
+
+name=_("Tunisian")
+plural=_("?plural:Tunisians")
+groups="Modern", "African"
+legend=_("")
+leader=
+ "Hussein bin Ali Agha",
+ "Khair ad-Din",
+ "Mustapha Khaznadar",
+ "Muhammad al-Munsif",
+ "Habib Bourguiba",
+ "Hedi Amara Nouira"
+leader_sex="Male", "Male", "Male", "Male", "Male", "Male"
+flag="tunisia"
+flag_alt = "-"
+city_style = "Classical"
+
+ruler_titles = { "government",      "male_title",      "female_title"
+                 "Monarchy",        _("Bey"),          _("?female:Bey")
+                 "Republic",        _("Dey"),          _("?female:Dey")
+               }
+
+init_techs=""
+init_buildings=""
+init_government="Despotism"
+init_units=""
+civilwar_nations = "algerian", "libyan"
+
+cities =
+  "Tunis",
+  "Gabes",
+  "Bizerte",
+  "Susah",
+  "Sfax",
+  "El Kef",
+  "Nabaul",
+  "Kesserine",
+  "Gafsa",
+  "Bajah",
+  "Tozeur",
+  "Manzil Bu Raqaybah",
+  "Medenine",
+  "Tataouine",
+  "Zarzis",
+  "Madanin",
+  "Duz",
+  "Tawzar",
+  "Al Munastir",
+  "Al Mahdiyah"

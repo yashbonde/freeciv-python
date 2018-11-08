@@ -1,0 +1,18 @@
+#===================================================
+# GNUmakefile for GCC 4.01							
+# S.R.K. Branavan									
+# Massachusetts Institute of Technology				
+#===================================================
+
+ARCH_FLAGS = -mtune=native -march=native -mfpmath=sse -msse -msse2 #-msse3 -mssse3 -msse4 -msse4.1 -msse4.2
+#OPTIMIZATIONS = -O3 -ffast-math -fno-math-errno -fno-signaling-nans -fno-trapping-math -ftree-loop-distribution -fgcse-lm -fgcse-sm -fgcse-las -fsee  -fomit-frame-pointer #-funsafe-loop-optimizations
+OPTIMIZATIONS = -O3 -ffast-math -fno-math-errno -fno-signaling-nans -fno-trapping-math -fgcse-lm -fgcse-sm -fgcse-las -fsee  -fomit-frame-pointer 
+
+#PROFILE = -fprofile-use #-pg -fprofile-generate -fprofile-arcs -ftest-coverage
+#PROFILE = -pg
+
+#OPT_FLAGS = -pipe  $(ARCH_FLAGS) $(OPTIMIZATIONS) $(PROFILE) -ggdb
+OPT_FLAGS = -pipe -DNDEBUG $(ARCH_FLAGS) $(OPTIMIZATIONS) $(PROFILE)
+#OPT_FLAGS = -ggdb
+
+

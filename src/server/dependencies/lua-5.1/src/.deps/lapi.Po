@@ -1,0 +1,132 @@
+lapi.o: lapi.c /usr/include/assert.h /usr/include/features.h \
+ /usr/include/bits/predefs.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-32.h /usr/include/math.h \
+ /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h \
+ /usr/include/bits/huge_vall.h /usr/include/bits/inf.h \
+ /usr/include/bits/nan.h /usr/include/bits/mathdef.h \
+ /usr/include/bits/mathcalls.h /usr/include/bits/mathinline.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h /usr/include/string.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h \
+ /usr/include/xlocale.h /usr/include/bits/string.h \
+ /usr/include/bits/string2.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/stdlib.h /usr/include/bits/string3.h lua.h luaconf.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include-fixed/limits.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h localluaconf.h ../../../config.h lapi.h \
+ lobject.h llimits.h ldebug.h lstate.h ltm.h lzio.h lmem.h ldo.h lfunc.h \
+ lgc.h lstring.h ltable.h lundump.h lvm.h
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/math.h:
+
+/usr/include/bits/huge_val.h:
+
+/usr/include/bits/huge_valf.h:
+
+/usr/include/bits/huge_vall.h:
+
+/usr/include/bits/inf.h:
+
+/usr/include/bits/nan.h:
+
+/usr/include/bits/mathdef.h:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/include/bits/mathinline.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h:
+
+/usr/include/string.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/string3.h:
+
+lua.h:
+
+luaconf.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include-fixed/limits.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+localluaconf.h:
+
+../../../config.h:
+
+lapi.h:
+
+lobject.h:
+
+llimits.h:
+
+ldebug.h:
+
+lstate.h:
+
+ltm.h:
+
+lzio.h:
+
+lmem.h:
+
+ldo.h:
+
+lfunc.h:
+
+lgc.h:
+
+lstring.h:
+
+ltable.h:
+
+lundump.h:
+
+lvm.h:

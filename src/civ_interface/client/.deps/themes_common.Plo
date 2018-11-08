@@ -1,0 +1,157 @@
+themes_common.lo: themes_common.c ../config.h /usr/include/assert.h \
+ /usr/include/features.h /usr/include/bits/predefs.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h \
+ /usr/include/bits/confname.h /usr/include/getopt.h /usr/include/string.h \
+ /usr/include/xlocale.h /usr/include/sys/stat.h /usr/include/time.h \
+ /usr/include/bits/stat.h ../utility/log.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h ../utility/shared.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/sys/types.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/sigset.h \
+ /usr/include/bits/time.h /usr/include/sys/sysmacros.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/alloca.h \
+ ../utility/support.h /usr/include/dirent.h /usr/include/bits/dirent.h \
+ /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h \
+ /usr/include/linux/limits.h /usr/include/stdio.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdbool.h \
+ ../utility/speclist.h ../utility/genlist.h ../utility/mem.h \
+ ../utility/mem.h ../utility/shared.h ../utility/string_vector.h \
+ ../utility/support.h include/themes_g.h themes_common.h options.h \
+ ../common/events.h ../utility/specenum_gen.h ../common/fc_types.h
+
+../config.h:
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/time.h:
+
+/usr/include/bits/stat.h:
+
+../utility/log.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h:
+
+../utility/shared.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+../utility/support.h:
+
+/usr/include/dirent.h:
+
+/usr/include/bits/dirent.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdbool.h:
+
+../utility/speclist.h:
+
+../utility/genlist.h:
+
+../utility/mem.h:
+
+../utility/mem.h:
+
+../utility/shared.h:
+
+../utility/string_vector.h:
+
+../utility/support.h:
+
+include/themes_g.h:
+
+themes_common.h:
+
+options.h:
+
+../common/events.h:
+
+../utility/specenum_gen.h:
+
+../common/fc_types.h:

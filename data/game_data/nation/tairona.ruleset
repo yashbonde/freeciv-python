@@ -1,0 +1,67 @@
+[nation_tairona]
+
+name=_("Tairona")
+plural=_("?plural:Tairona")
+groups="American"
+
+legend=_("")
+
+leader=
+ "Nabobá",
+ "Nugi Túxe",
+ "Hába Haxtoxé",
+ "Kunhwingumu"
+
+leader_sex = "Male", "Male", "Male", "Male"
+
+ruler_titles = { "government",      "male_title",        "female_title"
+		 ; /* TRANS: Hankwa = Chief */
+                 "Despotism",       _("Hankwa"),        _("?female:Hankwa")
+               }
+
+flag         = "tairona"
+flag_alt     = "-"
+city_style   = "Tropical"
+
+init_techs=""
+init_buildings=""
+init_government="Despotism"
+init_units=""
+
+civilwar_nations = "inca", "tupi", "mayan"
+
+cities =
+ "Teyuna",
+ "Chengue",
+ "Nehuange",
+ "Gaira",
+ "Cinto",
+ "Buritaca",
+ "Posiguieca",
+ "Pongueyca",
+ "Kogi",
+ "Yechikin",
+ "Busin",
+ "Serankua",
+ "Windiwameina",
+ "Singunei",
+ "Zigta",
+ "Yeurwa",
+ "Gumuke",
+ "Yeiwin",
+ "Seiarukwingumu",
+ "Buyuaguenka",
+ "Simonorwa",
+ "Wirwa",
+ "Yugaka",
+ "Karwa",
+ "Sogrome",
+ "Donachwi",
+ "Timaka",
+ "Aruamake",
+ "Seinimin",
+ "Izrwa",
+ "Bonda",
+ "Concha",
+ "Bunkunagega",
+ "Mukuánauiaishi"

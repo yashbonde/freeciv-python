@@ -1,0 +1,63 @@
+[nation_uyghur]
+
+name=_("Uyghur")
+plural=_("?plural:Uyghurs")
+groups="Medieval", "Asian"
+legend=_("")
+leader=
+ "Kutluk Bilge Kul",
+ "Moyunchur",
+ "Khitan",
+ "Bugu",
+ "Baga Tarkan",
+ "Kutlug Bilge",
+ "Sutuk Bugra",
+ "Guyuk"
+
+leader_sex="Male", "Male", "Male", "Male", "Male", "Male", "Male", "Male"
+flag="uyghur"
+flag_alt = "-"
+city_style = "Classical"
+
+ruler_titles = { "government",      "male_title",      "female_title"
+                 "Despotism",       _("Khan"),         _("Khatan")
+                 "Monarchy",        _("Great Khan"),   _("Great Khatan")
+               }
+
+init_techs=""
+init_buildings=""
+init_government="Despotism"
+init_units=""
+civilwar_nations = "turkish", "tocharian"
+
+cities =
+ "Ürümqi",
+ "Karamay",
+ "Kuytun",
+ "Karabalgasun",
+ "Haml",
+ "Kashi",
+ "Hotan",
+ "Korla",
+ "Turpan",
+ "Kuqa",
+ "Aksu",
+ "Balguntay",
+ "Nilka",
+ "Baxkorgan",
+ "Boron Sum",
+ "Ikanbujmal",
+ "Shihanza",
+ "Serikbuya",
+ "Karakhoja",
+ "Ulanlinggi",
+ "Tumshuke",
+ "Kashgar",
+ "Markit",
+ "Alar",
+ "Narat",
+ "Tikanlik",
+ "Altay",
+ "Tura",
+ "Üjachu",
+ "Yakatograk"
