@@ -5,7 +5,9 @@
 This is the official python environment for [Freeciv 2.6](http://freeciv.org) for advancements in deep Reinforcement Learning. 
 Freeciv is an open source multiplayer step-wise strategy game inspired from Civilizations 2. This creates a unique solution for a deep RL environment which has been long due. OpenAI gym and other environments lack this kind of games and create a void which needs to be filled for.
 
-OpenAI gym pioneered a new way for to democratize RL for masses, and now we must aim to develop something that is even more difficult. No such environment exists as of now and this thing will push the boundary for what can be done. We are improving over the previous [work done](http://groups.csail.mit.edu/rbg/code/civ/) and writing the python3 wrapper for it. 
+OpenAI gym pioneered a new way for to democratize RL for masses, and now we must aim to develop something that is even more difficult. No such environment exists as of now and this thing will push the boundary for what can be done. We are improving over the previous [work done](http://groups.csail.mit.edu/rbg/code/civ/) and writing the python3 wrapper for it.
+
+For some research material go to `/readings` folder.
 
 ## The Game
 [![ForTheBadge makes-people-smile](http://ForTheBadge.com/images/badges/makes-people-smile.svg)](http://ForTheBadge.com)
