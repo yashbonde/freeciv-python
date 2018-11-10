@@ -9,6 +9,8 @@ OpenAI gym pioneered a new way for to democratize RL for masses, and now we must
 
 For some research material go to `/readings` folder.
 
+Read about the idea [here](https://medium.com/@yashbonde/call-for-an-army-of-be-a-sts-f751436671be), and why it is of such importance.
+
 ## The Game
 [![ForTheBadge makes-people-smile](http://ForTheBadge.com/images/badges/makes-people-smile.svg)](http://ForTheBadge.com)
 
