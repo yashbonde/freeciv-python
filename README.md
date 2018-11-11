@@ -18,6 +18,14 @@ You can play the game simple by downloading the MacOS package [here](https://www
 
 ![alt text](https://vignette.wikia.nocookie.net/freeciv/images/1/1c/Freeciv-growing-cities-steal-food.jpg/revision/latest?cb=20150409102837)
 
+## Installation
+This is only tempoarary and will be removed once the final structure is decided. This installation is only for the MonteCarlo Agent in the directory as of 11.11.2018. In the folder directory
+
+```sh
+cmake # creates make files
+make
+```
+
 ## Structure of Environment
 The structure of package is inspired from VizDoom and the ease of use is inspired from OpenAI gym. More details will be added here. Initial commit contains the package for running Monte Carlo agent written in C++.
 
