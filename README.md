@@ -18,6 +18,9 @@ You can play the game simple by downloading the MacOS package [here](https://www
 
 ![alt text](https://vignette.wikia.nocookie.net/freeciv/images/1/1c/Freeciv-growing-cities-steal-food.jpg/revision/latest?cb=20150409102837)
 
+## Vision
+This game environment aims to be at the forefront of deep RL research, to push the boundaries of what can be done. The end goal is to create an agent which can learn by itself with minimal help from humans (the only support should be basic instructions). 
+
 ## Installation
 This is only tempoarary and will be removed once the final structure is decided. This installation is only for the MonteCarlo Agent in the directory as of 11.11.2018. In the folder directory
 
@@ -29,8 +32,20 @@ make
 ## Structure of Environment
 The structure of package is inspired from VizDoom and the ease of use is inspired from OpenAI gym. More details will be added here. Initial commit contains the package for running Monte Carlo agent written in C++.
 
-## Vision
-This game environment aims to be at the forefront of deep RL research, to push the boundaries of what can be done. The end goal is to create an agent which can learn by itself with minimal help from humans (the only support should be basic instructions). 
+## Todo
+Following is the list of tasks to be done before pre-alpha release
+1. Scan folder `/src/civ_interface` and document all the interafce functions used
+2. Write INTERFACE_MCA.md with proper documentation, structure and images if required
+3. Archive the Monte Carlo Agent and update repo with the latest freeciv
+4. Write proper interaface files in C++/Python for the new codebase
+5. Write python files in API style for maximum ease and usablitiy
+6. With each addition check for compilation and errors if any, document each step
+7. Release version 0.1
+
+## Update Logs
+DD-MM-YYYY format used for dates
+
+08.11.2018: Repo created with initial commit containing [Monte Carlo Agent](http://groups.csail.mit.edu/rbg/code/civ/)
 
 ## Credits
 The credit for the base code has to be given to the authors of [freeciv repo](https://github.com/freeciv/freeciv) and the authors of [paper](http://groups.csail.mit.edu/rbg/code/civ/).
