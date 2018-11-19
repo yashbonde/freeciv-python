@@ -1,4 +1,4 @@
-# freeciv-python
+![alt_text](https://github.com/yashbonde/freeciv-python/blob/master/ex_images/freeciv_logo_small-01.jpg)
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -45,7 +45,8 @@ Following is the list of tasks to be done before pre-alpha release
 ## Update Logs
 DD-MM-YYYY format used for dates
 
-19.11.2018: Add template for frreciv-python environment, find templates in `/python_core` folder
+19.11.2018: Add template for freeciv-python environment, find templates and further ideas in `/python_core` folder
+
 08.11.2018: Repo created with initial commit containing [Monte Carlo Agent](http://groups.csail.mit.edu/rbg/code/civ/)
 
 ## Credits
