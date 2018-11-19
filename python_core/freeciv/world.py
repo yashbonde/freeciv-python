@@ -1,20 +1,16 @@
 '''
-Freeciv world
+This is the template file for world in freeciv-python package
 '''
 
-# importing the dependencies
-import numpy as np
+# importing dependencies
+from wrappers import CoreWrapper
 
-# custom dependencies
-from units import Unit  # unit object
-import utils  # all util functions
-import < binder >  # binder file to connect to backend
-
-
+# class
 class World(object):
     '''
-    The world interface for the user to interact with the game, this is what the
-    user sees and experiences.
+    The world interface for the user to interact with the game, this is what the user sees and
+    experiences. It is initialised with the config file the structure of which is still unclear
+    whether to use modified savefile format or write a new config file system from scratch.
     Args:
         config_file: path to the configuration file for the game
     '''
@@ -23,85 +19,89 @@ class World(object):
         # init parameters
         self.config = utils.parse_config(config_file)
 
-        # game display parameters
+        '''
+        External attributes that are set in the Step 2
+        '''
         self.enable_display = enable_display
         if self.enable_display:
             self.resolution = [500, 500]
 
-        # lists
-
-        # log lists
-        self.global_scores = []
-        self.unit_list = []
-
-        # constants
-        self.global_turn = 0  # turn of the game
-
-    def Init(self, player_position=-1):
         '''
-        Initialize the game by doing the following:
-        1) connecting to the server using the sockets in cpp binder
-        2) sending the config information to the cpp backend
-        3) start the game based on position of the player.
-        Args:
-            player_position: the number at which the player starts, default at last
-        Return
-            game_init: bool (True if connection established)
+        Other parameters user need not change, can also be considered the operational attributes
         '''
-        assert player_position < self.config['num_players']
-        pass
+        self.global_turn = 0
+
+    def initialize_world(self):
+        '''
+        Send the stored attrbutes to the sever and it returns a boolean when it is ready. The
+        exact structure of teh attributes is still to be defined, we are focusing on the ideas
+        here.
+        '''
+        CoreWrapper.set_attributes(self.attributes)
+
+        # here the core wrapper performs check if minimum operational attributes are setup
+        # in case of a confllict it raises the proper error
+        world_ready = CoreWrapper.send_initialize_world_signal()
+
+        return world_ready
 
     def start_game(self):
         '''
-        Start the game by doing the following:
-        1) check the player stack
-        2) let the player above in the stack play their turns
-        3) if all the other players have played their turn return True
-        Returns:
-            game_started: bool (True if other players have played their turn)
+        This function sends information to the server to start the game and then all the initial
+        steps are then taken by the server. One such step is that all the player earlier in the
+        player queue have played their turns and now the it's the turn of agent.
         '''
-        pass
 
-    def get_states(self):
-        '''
-        1) obtain the states from backend
-        2) parse the states to proper format
-        3) send to the user
-        '''
-        res_map, unit_map, holding_map = <binder>.get_map()
-        return res_map, unit_map, holding_map
+        # boolean check if other players have played their turn
+        other_player_done = CoreWrapper.send_start_game_signl()
 
-    def get_global_score(self):
-        '''
-        1) get the global score of the player
-        2) add to the list of scores and return
-        '''
-        self.global_scores.append(global_score)
-        return self.global_scores[-1]
+        # get the map
+        # the maps that we obtain will be numpy array style n-D images of shape [map_x, map_y, depth]
+        maps = CoreWrapper.get_maps()
 
-    def get_units(self):
-        '''
-        Returns a list of the all the units that the player holds
-        :return:
-            units_list: Array with Unit objects
-        '''
-        return self.unit_list
+        # get the units
+        units_list = CoreWrapper.get_units()
 
-    def update(self, unit):
-        '''
-        Update the world.
-        :returns:
-            update_success: bool telling if the update was successful
-            game_done: bool telling if the game is finished
-        '''
-        # perform assertion that unit is indeed object of type Unit
-        assert isintance(unit, Unit)
+        # if we have fog of war
+        fow_maps = []
+        if self.enable_fow:
+            # the last map will be mask for the FoW
+            for i in range(len(maps) - 1):
+                maps[i] = utils.apply_fow_mask(map = maps[i], mask = maps[-1])
 
-        # call the binder and if it returns True update
-        update_completed, game_done = <binder>.update(unit)
-        if update_completed:
-            # update the global turn
-            self.global_turn += 1
+        # return the values
+        return maps, units_list
 
-        # return the booleans
-        return update_completed, game_done
+    def step(self, unit):
+        '''
+        This function is similar to OpenAI gym. Take action in the world for the input unit
+        '''
+        CoreWrapper.do_step_for_unit(unit)
+
+        # check if the turn ended, or if the game ended
+        # NOTE: game end is same as done in OpenAI gym
+        turn_end = CoreWrapper.get_turn_finished()
+        game_end = CoreWrapper.get_game_finished()
+        
+        # get the map
+        # the maps that we obtain will be numpy array style n-D images of shape [map_x, map_y, depth]
+        maps = CoreWrapper.get_maps()
+
+        # if we have fog of war
+        fow_maps = []
+        if self.enable_fow:
+            # the last map will be mask for the FoW
+            for i in range(len(maps) - 1):
+                maps[i] = utils.apply_fow_mask(map = maps[i], mask = maps[-1])
+
+        # return the values
+        return maps, turn_end, game_end
+
+    def end_game(self):
+        '''
+        End the game, this ends the game irrespective of whether the game is actually finished or not
+        '''
+
+        CoreWrapper.terminate_game() # send signal to end the game
+        CoreWrapper.cleanup() # perform cleanup by deleting all the variables and parameters 
+

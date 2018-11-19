@@ -45,6 +45,7 @@ Following is the list of tasks to be done before pre-alpha release
 ## Update Logs
 DD-MM-YYYY format used for dates
 
+19.11.2018: Add template for frreciv-python environment, find templates in `/python_core` folder
 08.11.2018: Repo created with initial commit containing [Monte Carlo Agent](http://groups.csail.mit.edu/rbg/code/civ/)
 
 ## Credits

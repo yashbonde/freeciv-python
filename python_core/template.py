@@ -113,7 +113,7 @@ memory usage (We will see how to optimize that). The player will continue to do 
 ends or the number of turns ends.
 
 IDEAS HERE:
-    1) The Unit class has to be similar to the object in 
+    1) The Unit class has to be similar to the struct in C++
  
 '''
 for t in range(world.num_turns):
