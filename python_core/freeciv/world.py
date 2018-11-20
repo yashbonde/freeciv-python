@@ -3,7 +3,7 @@ This is the template file for world in freeciv-python package
 '''
 
 # importing dependencies
-from wrappers import CoreWrapper
+from wrappers import core_wrapper
 
 # class
 class World(object):
@@ -37,11 +37,9 @@ class World(object):
         exact structure of teh attributes is still to be defined, we are focusing on the ideas
         here.
         '''
-        CoreWrapper.set_attributes(self.attributes)
-
         # here the core wrapper performs check if minimum operational attributes are setup
         # in case of a confllict it raises the proper error
-        world_ready = CoreWrapper.send_initialize_world_signal()
+        world_ready = core_wrapper.send_initialize_world_signal(self.attributes)
 
         return world_ready
 
@@ -53,14 +51,14 @@ class World(object):
         '''
 
         # boolean check if other players have played their turn
-        other_player_done = CoreWrapper.send_start_game_signl()
+        other_player_done = core_wrapper.send_start_game_signal()
 
         # get the map
         # the maps that we obtain will be numpy array style n-D images of shape [map_x, map_y, depth]
-        maps = CoreWrapper.get_maps()
+        maps = core_wrapper.get_maps()
 
         # get the units
-        units_list = CoreWrapper.get_units()
+        units_list = core_wrapper.get_units()
 
         # if we have fog of war
         fow_maps = []
@@ -76,16 +74,16 @@ class World(object):
         '''
         This function is similar to OpenAI gym. Take action in the world for the input unit
         '''
-        CoreWrapper.do_step_for_unit(unit)
+        core_wrapper.do_step_for_unit(unit)
 
         # check if the turn ended, or if the game ended
         # NOTE: game end is same as done in OpenAI gym
-        turn_end = CoreWrapper.get_turn_finished()
-        game_end = CoreWrapper.get_game_finished()
+        turn_end = core_wrapper.get_turn_finished()
+        game_end = core_wrapper.get_game_finished()
         
         # get the map
         # the maps that we obtain will be numpy array style n-D images of shape [map_x, map_y, depth]
-        maps = CoreWrapper.get_maps()
+        maps = core_wrapper.get_maps()
 
         # if we have fog of war
         fow_maps = []
@@ -102,6 +100,6 @@ class World(object):
         End the game, this ends the game irrespective of whether the game is actually finished or not
         '''
 
-        CoreWrapper.terminate_game() # send signal to end the game
-        CoreWrapper.cleanup() # perform cleanup by deleting all the variables and parameters 
+        core_wrapper.terminate_game() # send signal to end the game
+        core_wrapper.cleanup() # perform cleanup by deleting all the variables and parameters 
 

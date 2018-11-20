@@ -75,7 +75,7 @@ IDEAS HERE:
     1)  
 
 '''
-game_init_bool = world.initialize_world()
+game_ready = world.initialize_world()
 
 '''
 ==== Step 4: Start the world ====
@@ -113,7 +113,7 @@ memory usage (We will see how to optimize that). The player will continue to do 
 ends or the number of turns ends.
 
 IDEAS HERE:
-    1) The Unit class has to be similar to the struct in C++
+    1) The Unit class has to be similar to the Unit struct in C++ [??]
  
 '''
 for t in range(world.num_turns):
@@ -138,7 +138,7 @@ for t in range(world.num_turns):
 
         # update the world
         # done is last_turn [of the game]
-        end_turn, done = world.update(unit)
+        maps, end_turn, done = world.step(unit)
 
         if not done:
             # get the new state
@@ -170,6 +170,3 @@ for t in range(world.num_turns):
             end_game() function closes the connection and tells the server to shut down.
             '''
             world.end_game()
-
-            # if the stats are to be saved
-            world.dump_stats()
