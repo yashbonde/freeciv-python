@@ -7,7 +7,7 @@ client for further operation
 '''
 
 # import the compiled binary (that is the idea as of now)
-import freeciv_wrapper
+from freeciv_wrapper import CppFreecivWrapper
 
 # all the functions
 
