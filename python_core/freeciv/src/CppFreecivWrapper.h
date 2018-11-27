@@ -8,9 +8,8 @@
 // This is the header file for the main source code
 //
 
-##ifndef SYMBOL
-#define 
-#endif
+#ifndef FREECIV_WRAPPER_MAIN
+#define FREECIV_WRAPPER_MAIN
 
 #include <pybind11/pybind11.h>
 
@@ -42,3 +41,5 @@ public:
 	void get_TURN_CAP();
 	voin set_TURN_CAP();
 }
+
+#endif // FREECIV_WRAPPER_MAIN
