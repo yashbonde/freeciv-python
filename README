@@ -1,0 +1,18 @@
+==== README ====
+
+This is the main readme for this package. For all the details we are to refer to docs here.
+
+=== PACKAGE INTERFACE ===
+
+The interface package structure is as follows:
+
+(A) <==> (B) <==> (C) <==> (D) <==> (E)
+
+where:
+
+(A): User/Agent (python) : this is the agent which will call the freeciv (B)
+(B): FreeCiv World (python): This is similar to OpenAI gym env, it has similar 
+	 classes and methods as the env.
+(C): Interface (Python): Backend and interface in python
+(D): Interface (C++): Interface to client and server
+(E): FreeCiv Client/Server: The modified game with API/taps (??)

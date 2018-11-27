@@ -50,6 +50,6 @@ DD-MM-YYYY format used for dates
 08.11.2018: Repo created with initial commit containing [Monte Carlo Agent](http://groups.csail.mit.edu/rbg/code/civ/)
 
 ## Credits
-The credit for the base code has to be given to the authors of [freeciv repo](https://github.com/freeciv/freeciv) and the authors of [paper](http://groups.csail.mit.edu/rbg/code/civ/).
+The credit for the base code has to be given to the authors of [freeciv repo](https://github.com/freeciv/freeciv) and the authors of [paper](http://groups.csail.mit.edu/rbg/code/civ/). The credit also goes to the authors of research content in `/readings` folder.
 
 You can reach me out at bonde.yash97@gmail.com

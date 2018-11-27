@@ -8,18 +8,16 @@ I believe that rather than writing a HOWTO file we should document everthing as 
 
 ## Steps
 
-Shown below is the steps for running the environment as proposed.
-
-![alt_text](https://github.com/yashbonde/freeciv-python/blob/master/ex_images/freeciv_steps-02.png)
+Look at the idea [here](https://github.com/yashbonde/freeciv-python/blob/master/ex_images/freeciv_steps-02.png) which shows the step-by-step idea of how the package will work.
 
 NOTE: This is still the proposed structure and not the final iteration
 
-## Stucture
+## Stucture of Files
 
 The structure of freeciv package is relatively simple, the freeciv folder has the templates for the backend functions.
 
 1. `template.py`: the main template file has user end template. This shows how different functions that the user has are interacts with the backend and the steps to follow run the package.
 
-Under freeciv folder:
+For more details go in each folder.
 
 #### to be added
