@@ -1,18 +1,69 @@
 ==== README ====
 
-This is the main readme for this package. For all the details we are to refer to docs here.
+This is the main readme for this package. For all the details we are to refer to 
+docs here.
 
 === PACKAGE INTERFACE ===
 
 The interface package structure is as follows:
 
-(A) <==> (B) <==> (C) <==> (D) <==> (E)
+(A) <=> (B) <=> (C) <=> (D) <=> (E)
 
 where:
 
 (A): User/Agent (python) : this is the agent which will call the freeciv (B)
-(B): FreeCiv World (python): This is similar to OpenAI gym env, it has similar 
-	 classes and methods as the env.
+(B): FreeCiv World (python): This is similar to OpenAI gym env, it has similar
+     classes and methods as the env.
 (C): Interface (Python): Backend and interface in python
 (D): Interface (C++): Interface to client and server
 (E): FreeCiv Client/Server: The modified game with API/taps (??)
+
+
+=== Similarity to OpenAI Gym ===
+
+Simplicity of the package for maximum ease of use from researcher's side is 
+priority and ultimate goal. For details read the code snippet given in 
+/python_core/template.py.
+
+
+=== Details (On how to rob existing codebase) ===
+
+There are many things that we can learn from the existing codebase. Savefiles 
+are great way to look at the game and its state at any given moment. There needs 
+to be an efficient way of handling the logs to replay the game. If we ave to 
+rely on savefiles, the model will be extremely inefficient.
+
+
+== Deep Learning Models ==
+
+The model architecture will be called "Tantra", Hindi/Sanskrit word for "text, 
+theory, system, method, instrument, technique or practice". This is what we are 
+also doing here with the wide range of information that we have.
+
+
+== Future Plans ==
+
+I think with every single big project that we do there should be clear goals we 
+are trying to achieve. Without clear goals everything falls apart, and with very 
+detailed steps we forget the big picture. So this is it:
+
+- In the first release provide a simple way to interact with the freeciv world 
+  using the package. We should have all the detailed maps (as per freeciv 3.1), 
+  unit, city structure and a clear technology graph. This way we will have a MVP 
+  and foundation ready for building on top of it.
+
+- In next patch provide the modified GUI interface for replaying/recording (play 
+  the game and record all the moves to generate datasets) the game via a log 
+  file (we will need to develop it, even the freeciv team is finding it hard to 
+  keep logs for replay). Having a GUI will increase the speed 10x and will also 
+  bring much needed publicity to it.
+
+- Provide simpler interface for running server via the python part world itself, 
+  keep the majority processing in C because of processing requirements. This 
+  simpler interface is designed to help people with multi-agent interactions.
+
+- Move on to the next big thing. Let others build it as they see fit. At this 
+  stage once everything above is achieved, I will handover the repo to someone 
+  else to work their magic on it!
+
+-- Yash Bonde
