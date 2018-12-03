@@ -58,10 +58,10 @@ class Unit(object):
         self.activity_count = None
 
         # undefined
-        self.value = int  # some arbitrary value of the unit
+        self.value = int # some arbitrary value of the unit
 
         # not sure what these are
-        self.upkeep # unit upkeep with regards to the homecity
+        self.upkeep = None # unit upkeep with regards to the homecity
 
         '''
         struct unit_ai ai
