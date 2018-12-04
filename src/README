@@ -1,0 +1,23 @@
+==== README for SRC ====
+
+This is the main readme for the files in the source of the project. Most of 
+this readme is focused around the monte-carlo methods. Once the monte carlo is 
+reaplced with our own version this too will go out of here.
+
+This has four folders:
+
+- /server :       It has all the files for building the server
+- /model :        The files for running the monte carlo model
+- /libraries :    Various libraries used in the model
+-/civ_interface : The modified client with interface
+
+=== WHAT WE WANT TO DO ===
+
+We would ideally like to obtain different maps in the game in form of matrices 
+that can be directly ported to numpy.
+
+
+== UPDATE ==
+[DD/MM/YYYY]
+
+04.12.2018: At this moment the files are same for the monte-carlo version.

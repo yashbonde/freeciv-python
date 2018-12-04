@@ -30,7 +30,7 @@ priority and ultimate goal. For details read the code snippet given in
 
 There are many things that we can learn from the existing codebase. Savefiles 
 are great way to look at the game and its state at any given moment. There needs 
-to be an efficient way of handling the logs to replay the game. If we ave to 
+to be an efficient way of handling the logs to replay the game. If we have to 
 rely on savefiles, the model will be extremely inefficient.
 
 
