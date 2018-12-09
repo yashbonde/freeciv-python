@@ -11,6 +11,10 @@ class World(object):
     The world interface for the user to interact with the game, this is what the user sees and
     experiences. It is initialised with the config file the structure of which is still unclear
     whether to use modified savefile format or write a new config file system from scratch.
+    
+    NOTE: This is the client end and not the compelte world as such the attributes and functions 
+          are designed from the client perspective
+
     Args:
         config_file: path to the configuration file for the game
     '''
@@ -30,6 +34,10 @@ class World(object):
         Other parameters user need not change, can also be considered the operational attributes
         '''
         self.global_turn = 0
+
+        self.cities = []
+        self.units = []
+
 
     def initialize_world(self):
         '''

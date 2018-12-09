@@ -16,7 +16,7 @@ rich documentation written from the perspective of new layman user.
 '''
 
 # import freeciv dependencies
-import freeciv
+from freeciv.world import World
 
 '''
 ==== Step 1: Make the World ====
@@ -39,7 +39,7 @@ IDEAS HERE:
     2) 
 
 '''
-world = freeciv.World('path/to/config/file.fcfg')
+world = World('path/to/config/file.fcfg')
 
 '''
 ==== Step 2: Set the Attributes ====

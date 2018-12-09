@@ -1,4 +1,4 @@
-![alt_text](https://github.com/yashbonde/freeciv-python/blob/master/ex_images/freeciv_logo_small-01.jpg)
+![alt_text](https://github.com/yashbonde/freeciv-python/blob/master/images/freeciv_logo_small-01.jpg)
 
 ### UNDER DEVELOPMENT `PRE-RELEASE`
 
@@ -37,7 +37,7 @@ The structure of package is inspired from VizDoom and the ease of use is inspire
 ## Update Logs
 DD-MM-YYYY format used for dates
 
-09.12.2018: Finalise structure as client socket conection started adding template files in `/python_core/freeciv` folder. The structure is inspired by [freeciv-bot](https://github.com/chris1869/freeciv-bot) and builds on top of it. Remove MonteCarlo agent, complete refractoring.
+09.12.2018: Finalise structure as client socket conection started adding template files in `/freeciv/freeciv` folder. The structure is inspired by [freeciv-bot](https://github.com/chris1869/freeciv-bot) and builds on top of it. Remove MonteCarlo agent, complete refractoring.
 
 19.11.2018: Add template for freeciv-python environment, find templates and further ideas in `/python_core` folder
 
