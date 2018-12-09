@@ -1,5 +1,0 @@
-wldlg.lo: wldlg.c ../../config.h wldlg.h
-
-../../config.h:
-
-wldlg.h:

@@ -1,9 +1,0 @@
-- Calling ReceiveBlocking on a non-standalone socket causes transient socket
-  disconnects in a threaded environment due to race conditions with OnData.
-  I.e.  both OnData, and the recv in ReceiveBlocking try to read the same data,
-  and one gets 0 bytes.  This makes it think the socket was closed by the peer.
-
-  [SOLUTION] A workaround has been added to ReceiveBlocking, so that an warning
-  			 message is printed if ReceiveBlocking is called on a non-standalone
-			 socket.
-			 Don't know what a permanent solution would be...

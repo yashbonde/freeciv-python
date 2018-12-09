@@ -1,7 +1,0 @@
-finddlg.lo: finddlg.c ../../config.h finddlg.h ../include/finddlg_g.h
-
-../../config.h:
-
-finddlg.h:
-
-../include/finddlg_g.h:

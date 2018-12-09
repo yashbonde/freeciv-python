@@ -19,11 +19,19 @@ where:
 (E): FreeCiv Client/Server: The modified game with API/taps (??)
 
 
-=== Similarity to OpenAI Gym ===
+=== Targets ===
 
 Simplicity of the package for maximum ease of use from researcher's side is 
-priority and ultimate goal. For details read the code snippet given in 
-/python_core/template.py.
+priority and ultimate goal, which is same as for OpenAI gym. For achieving this 
+target we need to do the following: 
+
+    - package should be installable as $ pip3 install freeciv
+    - should install the complete game and not just the wrapper to existing 
+      installation
+    - starting and ending game (and in extension server) should be possible right 
+      from the python interface and should not require any external command
+
+For examples read the code snippets given in /python_core.
 
 
 === Details (On how to rob existing codebase) ===
