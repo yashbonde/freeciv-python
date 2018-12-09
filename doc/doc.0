@@ -1,0 +1,27 @@
+===== OFFICIAL DOCUMENTATION =====
+
+Congratulations, this is your first step into the world of freeciv and modify it 
+as you see fit. This is the official documentation and is the first one anyone 
+should read, thus the name doc.0.
+
+==== Structure of Package ====
+
+The overall structure of the package is as follows:
+
+|-freeciv - world (world files for the game)
+|       | - connectivity (socket connection modules)
+
+=== World ===
+
+Each world is what the AI will see and is the client side interface to the game. 
+It has all the functionality available to it as any human player would have. 
+
+
+--* Final words *--
+
+As more and more functionality is added and completed further docs will be built 
+for those specific requirements. 
+
+Happy Hacking!
+
+- Yash Bonde

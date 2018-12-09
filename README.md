@@ -4,14 +4,13 @@
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
-This is the official python environment for [Freeciv 3.1](http://freeciv.org) for advancements in deep Reinforcement Learning. 
-Freeciv is an open source multiplayer step-wise strategy game inspired from Civilizations 2. This creates a unique solution for a deep RL environment which has been long due. OpenAI gym and other environments lack this kind of games and create a void which needs to be filled for.
+This is the official python environment for [Freeciv 3.1](http://freeciv.org) for advancements in deep Reinforcement Learning. Freeciv is an open source multiplayer step-wise strategy game inspired from Civilizations 2. This creates a unique solution for a deep RL environment which has been long due. OpenAI gym and other environments lack this kind of games and create a void which needs to be filled for.
 
-OpenAI gym pioneered a new way for to democratize RL for masses, and now we must aim to develop something that is even more difficult. No such environment exists as of now and this thing will push the boundary for what can be done. We are improving over the previous [work done](http://groups.csail.mit.edu/rbg/code/civ/) and writing the python3 wrapper for it.
-
-For some research material go to `/readings` folder.
+OpenAI gym pioneered a new way for to democratize RL for masses, and now we must aim to develop something that is even more difficult. No such environment exists as of now and this thing will push the boundary for what can be done.
 
 Read about the idea [here](https://medium.com/@yashbonde/call-for-an-army-of-be-a-sts-f751436671be), and why it is of such importance.
+
+For some research material go to `/readings` folder. This will be removed and shifted to some folder as we approach the release for this project.
 
 ## The Game
 [![ForTheBadge makes-people-smile](http://ForTheBadge.com/images/badges/makes-people-smile.svg)](http://ForTheBadge.com)
@@ -30,14 +29,15 @@ Game not developed but installation should be as easy as:
 $ pip3 install freeciv
 ```
 
-## Structure of Environment
-The structure of package is inspired from VizDoom and the ease of use is inspired from OpenAI gym. More details will be added here.
+And just like any open-source project worth it's salt, proper documentation is available in the `/doc` folder.
 
+## Structure of Environment
+The structure of package is inspired from VizDoom and the ease of use is inspired from OpenAI gym. More details will be added here. If you have any suggestion goto first issue in the repo and respond back in the thread. 
 
 ## Update Logs
 DD-MM-YYYY format used for dates
 
-09.12.2018: Finalise structure as client socket conection started adding template files in `/freeciv/freeciv` folder. The structure is inspired by [freeciv-bot](https://github.com/chris1869/freeciv-bot) and builds on top of it. Remove MonteCarlo agent, complete refractoring.
+09.12.2018: Finalise structure as client socket conection started adding template files in `/freeciv` folder. The structure is inspired by [freeciv-bot](https://github.com/chris1869/freeciv-bot) and builds on top of it. Remove MonteCarlo agent, complete refractoring.
 
 19.11.2018: Add template for freeciv-python environment, find templates and further ideas in `/python_core` folder
 
