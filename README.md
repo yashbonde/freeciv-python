@@ -19,7 +19,7 @@ You can play the game simple by downloading the MacOS package [here](https://www
 ![alt text](https://vignette.wikia.nocookie.net/freeciv/images/1/1c/Freeciv-growing-cities-steal-food.jpg/revision/latest?cb=20150409102837)
 
 ## Vision
-This game environment aims to be at the forefront of deep RL research, to push the boundaries of what can be done. The end goal is to create an agent which can learn by itself with minimal help from humans (the only support should be basic instructions). 
+This game environment aims to be at the forefront of deep RL research, to push the boundaries of what can be done. The end goal is to create an agent which can learn by itself with minimal help from humans (the only support should be basic instructions). For more details kindly go through `README`.
 
 ## Installation
 This is only tempoarary and will be removed once the final structure is decided. This installation is only for the MonteCarlo Agent in the directory as of 11.11.2018. In the folder directory
@@ -44,6 +44,8 @@ Following is the list of tasks to be done before pre-alpha release
 
 ## Update Logs
 DD-MM-YYYY format used for dates
+
+09.12.2018: Finalise structure as client socket conection started adding template files in `/python_core/freeciv` folder. The structure is inspired by [freeciv-bot](https://github.com/chris1869/freeciv-bot) and builds on top of it
 
 19.11.2018: Add template for freeciv-python environment, find templates and further ideas in `/python_core` folder
 
