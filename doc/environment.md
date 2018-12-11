@@ -14,7 +14,7 @@ Freeciv is a natural extension of board games, and so we call the state of game 
 
 3. **Player Perspective**: One thing that is different for each player is how it will look at the world. Different countries would have explored different areas and so each country will have a unique map of their own. This is implemented using masking. Using masks a single map can be divided for each player increasing the code efficiency.
 
-The board os of shape `(M, N)` where `M` is the number of 
+The board os of shape `(M, N)` where `M` and `N` is the size of the board.
 
 ### Map Descriptions
 
@@ -42,7 +42,7 @@ Tundra     t
 
 **Time Variant Maps:**
 
-2. `ownership_map`: implemented [here]() tells about the onwership of tiles
+2. `ownership_map`: implemented [here]() tells about the onwership of tiles on the board
 
 3. `resources_map`: implemented [here]() tells about the various resources available on the tiles. The resources are given as follows:
 
@@ -77,9 +77,9 @@ For now we directly convert the action space of units with what is given in the 
 
 ```python
 for unit in unit_list:
-	print(f"[*] All actions for unit {unit.id} are:")
-	print(unit.get_actions())
+    print(f"[*] All actions for unit {unit.id} are:")
+    print(unit.get_actions())
 
-	print(f"[*] Valid actions for unit {unit.id} in given state are:")
-	print(unit.get_valid_actions())
+    print(f"[*] Valid actions for unit {unit.id} in given state are:")
+    print(unit.get_valid_actions())
 ```
