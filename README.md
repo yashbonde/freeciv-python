@@ -19,6 +19,8 @@ You can play the game simple by downloading the MacOS package [here](https://www
 
 ![alt text](https://vignette.wikia.nocookie.net/freeciv/images/1/1c/Freeciv-growing-cities-steal-food.jpg/revision/latest?cb=20150409102837)
 
+You can also install the game from the main [repo](https://github.com/freeciv/freeciv) by looking at the INSTALL in docs.
+
 ## Vision
 This game environment aims to be at the forefront of deep RL research, to push the boundaries of what can be done. The end goal is to create an agent which can learn by itself with minimal help from humans (the only support should be basic instructions). For more details kindly go through `README`.
 
