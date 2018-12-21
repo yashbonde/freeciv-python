@@ -3,7 +3,7 @@ This is the template file for world in freeciv-python package
 '''
 
 # importing dependencies
-from wrappers import core_wrapper
+from connectivity import web_connection
 
 # class
 class World(object):
@@ -47,7 +47,7 @@ class World(object):
         '''
         # here the core wrapper performs check if minimum operational attributes are setup
         # in case of a confllict it raises the proper error
-        world_ready = core_wrapper.send_initialize_world_signal(self.attributes)
+        world_ready = web_connection.send_initialize_world_signal(self.attributes)
 
         return world_ready
 
@@ -59,14 +59,14 @@ class World(object):
         '''
 
         # boolean check if other players have played their turn
-        other_player_done = core_wrapper.send_start_game_signal()
+        other_player_done = web_connection.send_start_game_signal()
 
         # get the map
         # the maps that we obtain will be numpy array style n-D images of shape [map_x, map_y, depth]
-        maps = core_wrapper.get_maps()
+        maps = web_connection.get_maps()
 
         # get the units
-        units_list = core_wrapper.get_units()
+        units_list = web_connection.get_units()
 
         # if we have fog of war
         fow_maps = []
@@ -82,16 +82,16 @@ class World(object):
         '''
         This function is similar to OpenAI gym. Take action in the world for the input unit
         '''
-        core_wrapper.do_step_for_unit(unit)
+        web_connection.do_step_for_unit(unit)
 
         # check if the turn ended, or if the game ended
         # NOTE: game end is same as done in OpenAI gym
-        turn_end = core_wrapper.get_turn_finished()
-        game_end = core_wrapper.get_game_finished()
+        turn_end = web_connection.get_turn_finished()
+        game_end = web_connection.get_game_finished()
         
         # get the map
         # the maps that we obtain will be numpy array style n-D images of shape [map_x, map_y, depth]
-        maps = core_wrapper.get_maps()
+        maps = web_connection.get_maps()
 
         # if we have fog of war
         fow_maps = []
@@ -108,6 +108,6 @@ class World(object):
         End the game, this ends the game irrespective of whether the game is actually finished or not
         '''
 
-        core_wrapper.terminate_game() # send signal to end the game
-        core_wrapper.cleanup() # perform cleanup by deleting all the variables and parameters 
+        web_connection.terminate_game() # send signal to end the game
+        web_connection.cleanup() # perform cleanup by deleting all the variables and parameters 
 
