@@ -34,10 +34,12 @@ $ pip3 install freeciv
 And just like any open-source project worth it's salt, proper documentation is available in the `/doc` folder.
 
 ## Structure of Environment
-The structure of package is inspired from VizDoom and the ease of use is inspired from OpenAI gym. More details will be added here. If you have any suggestion goto first issue in the repo and respond back in the thread. 
+The structure of package is inspired from VizDoom and the ease of use is inspired from OpenAI gym. The freeciv-python has a three part structure, the first part is the `packet_manager` which handles the IO, secondly `fc_inference` which converts the information from packets to structure understandable by deep learning models. Lastly we have the `world` which is the env where the game is played out.
 
 ## Update Logs
 DD-MM-YYYY format used for dates
+
+10.01.2019: Add final structure and corresponding folders.
 
 09.12.2018: Finalise structure as client socket conection started adding template files in `/freeciv` folder. The structure is inspired by [freeciv-bot](https://github.com/chris1869/freeciv-bot) and builds on top of it. Remove MonteCarlo agent, complete refractoring.
 
