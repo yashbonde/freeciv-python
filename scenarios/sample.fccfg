@@ -1,0 +1,24 @@
+// This is a sample config file for pyfc
+//
+// This follows the simple C comment style, Each comment line must start 
+// with the two forward slashes so the loader ignores the lines
+
+// STANDARD
+// ========
+// These are the standard values for the game, on server end these 
+// attributes are shown when command `show` is used.
+
+$STANDARD
+
+XSIZE = 64 // int: (16, 128000)
+YSIZE = 64 // int: (16, 128000)
+
+// RARE
+// ========
+// These are the standard values for the game, on server end these 
+// attributes are shown when command `show rare` is used.
+
+$RARE
+
+PINGTIME = 20 // int: (1, 1800)
+PINGTIMEOUT = 60 // int: (60, 1800)
