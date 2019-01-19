@@ -2,10 +2,12 @@
 pyfc.py
 
 This is the file that will be imported by the client bot
+
+@yashbonde - 15.01.2019
 '''
 
 from inference_handler import InferenceHandler
-import utils
+from utils import fc_utils
 
 class World(object):
 	def __init__(self):

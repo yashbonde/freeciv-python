@@ -1,7 +1,7 @@
 '''
 inference_base.py
 
-@yashbonde 16.01.2019
+@yashbonde - 16.01.2019
 '''
 
 class ActionInferenceEngine(object):

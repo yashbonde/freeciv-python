@@ -1,11 +1,11 @@
 '''
-Freeciv Inference Engine - Map Inference
+Freeciv Inference - Map Inference
 
 @yashbonde - 12.12.2019
 '''
 
 # importing the dependencies
-import numpy as np # linear algebra
+import numpy as np
 import json
 
 # class

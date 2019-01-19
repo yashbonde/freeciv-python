@@ -117,6 +117,8 @@ class InferenceHandler(object):
 		# function to update the game state
 		self.num_moves += 1 # increment the moves
 		state = self.fcio.state()
+
+		return state
 		
 
 	def end_turn(self):

@@ -36,8 +36,13 @@ And just like any open-source project worth it's salt, proper documentation is a
 ## Structure of Environment
 The structure of package is inspired from VizDoom and the ease of use is inspired from OpenAI gym. The freeciv-python has a three part structure, the first part is the `packet_manager` which handles the IO, secondly `fc_inference` which converts the information from packets to structure understandable by deep learning models. Lastly we have the `world` which is the env where the game is played out.
 
+## Understanding the Game
+As this project comes to realisation moving all the side work done in this repo to a new [freeciv-related](https://github.com/yashbonde/freeciv-related) repo.
+
 ## Update Logs
 DD-MM-YYYY format used for dates
+
+18.01.2019: Make new repo [freeciv-related](https://github.com/yashbonde/freeciv-related) to shift the side work done on freeciv.
 
 10.01.2019: Add final structure and corresponding folders.
 

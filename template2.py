@@ -48,16 +48,28 @@ def run_game():
             pos_actions = u_.get_possible_actions()
 
             # AI MODEL HERE
-            action_ = AIModel.take_action(state = maps, **kwargs)
+            action_ = AIModel.unitNetwork.take_action(state = maps, **kwargs)
 
             u_.take_action(action_) # take action
 
-            new_state = world.update()
+            state = world.update()
 
         # iterate over cities
         cities = world.get_cities()
 
         for c_ in cities:
+            pos_actions_city = c_.get_possible_actions()
 
+            # AI MODEL HERE
+            action_ = AIModel.cityNetwork.take_action(state = state)
+
+            c_.take_action(action_)
+
+            state = world.update()
+
+    # some other information that we would like from the world
+    print(world.network_info())
+    print(world.ruleset_info())
+    print(world.)
 
 
