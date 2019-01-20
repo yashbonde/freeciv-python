@@ -154,6 +154,18 @@ class World(object):
 	'''
 	These are the functions that can be called by the client during gameplay
 	'''
+	def network_info(self):
+		# return all the network information
+		net_info = dict(ip = self.masterHandler.fcio.IP,
+			port = self.masterHandler.fcio.port,
+			authentication = self.masterHandler.fcio.auth_done)
+		
+		return net_info
+
+	def ruleset_info(self):
+		# return all the information relating to rules
+		return self.masterHandler.infr_rules.info
+
 	def get_scorecard(plyr_id = self.plyr_id):
 		# get scorecard of the player by id
 		pass

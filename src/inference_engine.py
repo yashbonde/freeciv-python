@@ -15,6 +15,7 @@ from fc_inference.city_inference import CityInferenceEngine # city
 from fc_inference.dipl_inferface import DiplInferenceEngine # dipl
 from fc_inference.gov_inference import GovInferenceEngine # gov
 from fc_inference.maps_inference import MapsInferenceEngine # maps
+from fc_inference.plyr_inference import PlyrInferenceEngine # unit
 from fc_inference.tech_inference import TechInferenceEngine # tech
 from fc_inference.unit_inference import UnitInferenceEngine # unit
 
@@ -75,7 +76,6 @@ class InferenceHandler(object):
 		self.infr_client = NonActionInferenceEngine(state['client'])
 		self.infr_game = NonActionInferenceEngine(state['game'])
 		self.infr_optns = NonActionInferenceEngine(state['options'])
-		self.infr_plyr = NonActionInferenceEngine(state['player'])
 		self.infr_rules = NonActionInferenceEngine(state['rules'])
 
 		# maps are special case
