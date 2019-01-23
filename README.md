@@ -50,6 +50,3 @@ DD-MM-YYYY format used for dates
 19.11.2018: Add template for freeciv-python environment, find templates and further ideas in `/python_core` folder
 
 08.11.2018: Repo created with initial commit containing [Monte Carlo Agent](http://groups.csail.mit.edu/rbg/code/civ/)
-
-## Credits
-The credit for the base code has to be given to the authors of [freeciv repo](https://github.com/freeciv/freeciv).
