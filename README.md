@@ -2,7 +2,7 @@
 
 ### UNDER DEVELOPMENT `PRE-RELEASE`
 
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+![alt_text](https://img.shields.io/github/license/yashbonde/freeciv-python.svg?style=for-the-badge) ![alt_text](https://img.shields.io/github/issues/detail/s/yashbonde/freeciv-python/3.svg?style=for-the-badge)
 
 This is the official python environment for [Freeciv 3.1](http://freeciv.org) for advancements in deep Reinforcement Learning. Freeciv is an open source multiplayer step-wise strategy game inspired from Civilizations 2. This creates a unique solution for a deep RL environment which has been long due. OpenAI gym and other environments lack this kind of games and create a void which needs to be filled for.
 
@@ -13,7 +13,6 @@ Read about the idea [here](https://medium.com/@yashbonde/call-for-an-army-of-be-
 For some research material go to `/readings` folder. This will be removed and shifted to some folder as we approach the release for this project.
 
 ## The Game
-[![ForTheBadge makes-people-smile](http://ForTheBadge.com/images/badges/makes-people-smile.svg)](http://ForTheBadge.com)
 
 You can play the game simple by downloading the MacOS package [here](https://www.dropbox.com/sh/buypyjprsbvq0hd/AABuisFfBn-WDJgAEcXIZGrSa?dl=0) and running the `.pkg` file. It is fully interactive and a really fun game to play, though idea is that we should be able to compile and run it.
 
@@ -53,4 +52,4 @@ DD-MM-YYYY format used for dates
 08.11.2018: Repo created with initial commit containing [Monte Carlo Agent](http://groups.csail.mit.edu/rbg/code/civ/)
 
 ## Credits
-The credit for the base code has to be given to the authors of [freeciv repo](https://github.com/freeciv/freeciv) and the authors of [paper](http://groups.csail.mit.edu/rbg/code/civ/). The credit also goes to the authors of research content in `/readings` folder.
+The credit for the base code has to be given to the authors of [freeciv repo](https://github.com/freeciv/freeciv).
