@@ -12,5 +12,5 @@ class DiplInferenceEngine(ActionInferenceEngine):
 	not need to use various versions of this, thus this is the sole handler of 
 	all the diplomacy.
 	'''
-	def __init__(self, init_state):
-		ActionInferenceEngine.__init(init_state)
+	def __init__(self, fcio, init_state):
+		self.fcio = fcio

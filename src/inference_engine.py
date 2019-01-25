@@ -1,4 +1,6 @@
 '''
+inference_engine.py
+
 This is the main inference engine and handles all the other sub classes
 
 @yashbonde - 12.01.2019
@@ -25,15 +27,21 @@ from fc_inference.inference_base import NonActionInferenceEngine
 # importing connectivity module
 from connectivity.fc_iomanager import FCIOManager
 
+# utils
+from utils.attr_handler import attrHandler
+
 class InferenceHandler(object):
 	'''
 	This is the inference handler that controls all the engines. There is no handler for inidividual
 	parts such as units as was planned earlier.
 	'''
-	def __init__(self, arg):
+	def __init__(self):
 
 		# defining the connectivity manager
 		self.fcio = FCIOManager()
+
+		# defining attribute class
+		self.ATTR = attrHandler()
 
 		# all the units
 		self.unit_engines = []
@@ -105,10 +113,9 @@ class InferenceHandler(object):
 		is parsed and the attributes are set 
 		'''
 		state = fcio.get_state()
-		# parse state for those which don't have action
+		
+		# parse state depending whether action or not
 		self._parse_non_action(state)
-
-		# parse state for those which have action
 		self._parse_action(state)
 
 		return self.infr_map.get_init_map()
@@ -119,7 +126,10 @@ class InferenceHandler(object):
 		state = self.fcio.state()
 
 		return state
-		
+
+	def load_saved_game(self):
+		print('inference_engine.py: load_saved_game() not implemented')
+
 
 	def end_turn(self):
 		self.fcio.send_end_turn_packet()

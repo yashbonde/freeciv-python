@@ -4,8 +4,8 @@ gov_inference.py
 @yashbonde - 19.01.2019
 '''
 
-class GovInferenceEngine(object):
-	def __init__(self, init_state):
-		self.inti
+from inference_base import ActionInferenceEngine
 
-		for key in 
+class GovInferenceEngine(ActionInferenceEngine):
+	def __init__(self, fcio, **kwargs):
+		self.fcio = fcio

@@ -6,13 +6,11 @@ inference_base.py
 
 class ActionInferenceEngine(object):
     def __init__(self, state_dict):
-        self.num_attr = len(state_dict)
         self.attr = list(state_dict.keys())
         for key in state_dict:
             setattr(self, key, state_dict[key])
 
     def init_action(self, action_dict):
-        self.num_actions = len(action_dict)
         self.action_list = []
         for key in action_dict:
             k_ = 'action_'
@@ -20,30 +18,30 @@ class ActionInferenceEngine(object):
             self.action_list.append(key)
 
     # Some basic functions to have in each action base class
-
-    def display_attributes(self):
-        for a in self.attr:
-            print('ATTRIBUTE:', a)
-
-    def get_attributes(self):
-        return self.attr
-
-    def get_num_attributes(self):
-        return self.num_attr
-
-    def get_num_actions(self):
-        return self.num_actions
+    def show_status(self):
+        for i, attr in enumerate(self.attr):
+            t = "[{0}] {1}: {2}".format(i, attr, getattr(self, attr))
+            print(t)
 
     def get_actions(self):
-        return self.action_list 
+        pass
 
+    def RAW_state(self):
+        # return the dictionary of state for this object
+        pass
+
+    def RAW_actions(self):
+        # return the dictionary of actions for this object
+        pass
 
 class NonActionInferenceEngine(object):
     def __init__(self, state_dict):
-        self.num_attr = 0
         self.attr = []
         for key in state_dict:
             setattr(self, key, state_dict[key])
-            
-            self.num_attr += 1
             self.attr.append(key)
+
+    def show_status(self):
+        for i, attr in enumerate(self.attr):
+            t = "[{0}] {1}: {2}".format(i, attr, getattr(self, attr))
+            print(t)
