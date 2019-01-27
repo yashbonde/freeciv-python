@@ -6,8 +6,7 @@ This is the file that will be imported by the client bot
 @yashbonde - 15.01.2019
 '''
 
-from inference_handler import InferenceHandler
-from minigames.minigames_base import miniGamesBaseClass
+from pyfc.inference_handler import InferenceHandler
 
 from utils import fc_utils
 
@@ -211,9 +210,4 @@ class World(object):
 		# here check state
 		# only if it is possible to reset, reset the game
 		print("reset() not implemented")
-
-
-class MiniGames(minigamesBaseClass):
-	def __init__(self, **kwargs):
-		minigamesBaseClass.__init__(**kwargs)
 
