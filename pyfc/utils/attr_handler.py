@@ -16,6 +16,10 @@ class attrHandler():
 		setattr(self, key, value)
 		self.attr.append(key)
 
+	def add_attr_from_dict(self, key2val):
+		for key in key2val:
+			setattr(self, key, key2val[key])
+
 	def get_attr_list(self):
 		return self.attr
 

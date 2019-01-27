@@ -18,7 +18,7 @@ class AIModel():
 def run_game():
     world = pyfc.World()
 
-    world.new_game_from_config('./scenarios/sample.fccfg')
+    world.load_from_config('./scenarios/sample.fccfg')
 
     world.new_game(username = 'yashbonde',
         server_ip = '127.0.0.1',
@@ -28,6 +28,12 @@ def run_game():
         aifill = 2,
         xsize = 16,
         ysize = 16)
+
+    # === to use minigames
+    # to get a list of minigames
+    print(pyfc.MiniGames.games)
+    game = pyfc.MiniGames.load_minigame('BULBRESEARCH_100')
+    world.new_minigame(game)
 
     state_map = world.start_game()
 

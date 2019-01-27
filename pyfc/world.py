@@ -1,5 +1,5 @@
 '''
-pyfc.py
+world.py
 
 This is the file that will be imported by the client bot
 
@@ -7,6 +7,8 @@ This is the file that will be imported by the client bot
 '''
 
 from inference_handler import InferenceHandler
+from minigames.minigames_base import miniGamesBaseClass
+
 from utils import fc_utils
 
 from utils.attr_handler import attrHandler
@@ -27,9 +29,8 @@ class World(object):
 		self.unit2key = None # dictionary converting int key to string key
 
 		# Core back attributes
-		self.ATTR = attrHandler()
-		self.ATTR.info = 'These attributes are for the Game'
-		self.masterHandler = InferenceHandler()
+		self.GameATTR = attrHandler
+		self.masterHandler = InferenceHandler
 
 	### BASE FUNCTIONS ####
 	'''
@@ -100,6 +101,14 @@ class World(object):
 	These are the functions that need (not must) to be called by the client
 	to run the game
 	'''
+	def load_from_config(self, path):
+		key2val = ead_config_file_from_path(path)
+		for key in key2val:
+			self.GameATTR.add_attr_from_dict(key2val)
+
+		if self.log:
+			self.log.add_INFO('World: self attributes set')
+
 	def new_game_from_config(self, path, **kwargs):
 		'''
 		Load the game from config file
@@ -116,8 +125,8 @@ class World(object):
 				 server_port,
 				 **kwargs):
 		'''
-		This function is called to start the new game, the parameters passed through this override the ones set using config 
-		file.
+		This function is called to start the new game, the parameters passed through this
+		override the ones set using config file.
 		
 		Args:
 			username: username of the bot to register on server
@@ -202,3 +211,9 @@ class World(object):
 		# here check state
 		# only if it is possible to reset, reset the game
 		print("reset() not implemented")
+
+
+class MiniGames(minigamesBaseClass):
+	def __init__(self, **kwargs):
+		minigamesBaseClass.__init__(**kwargs)
+
