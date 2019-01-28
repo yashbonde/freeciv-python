@@ -14,7 +14,6 @@ class ActionInferenceEngine(object):
         self.action_list = []
         for key in action_dict:
             k_ = 'action_'
-            setattr(self, k_, state_dict[key])
             self.action_list.append(key)
 
     # Some basic functions to have in each action base class

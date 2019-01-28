@@ -13,13 +13,13 @@ import json
 import logging
 
 # importing the custom handlers
-from fc_inference.city_inference import CityInferenceEngine # city
-from fc_inference.dipl_inferface import DiplInferenceEngine # dipl
-from fc_inference.gov_inference import GovInferenceEngine # gov
-from fc_inference.maps_inference import MapsInferenceEngine # maps
-from fc_inference.plyr_inference import PlyrInferenceEngine # unit
-from fc_inference.tech_inference import TechInferenceEngine # tech
-from fc_inference.unit_inference import UnitInferenceEngine # unit
+from .fc_inference.city_inference import CityInferenceEngine # city
+from .fc_inference.dipl_inferface import DiplInferenceEngine # dipl
+from .fc_inference.gov_inference import GovInferenceEngine # gov
+from .fc_inference.maps_inference import MapsInferenceEngine # maps
+from .fc_inference.plyr_inference import PlyrInferenceEngine # unit
+from .fc_inference.tech_inference import TechInferenceEngine # tech
+from .fc_inference.unit_inference import UnitInferenceEngine # unit
 
 # importing the non gameplay classes
 from fc_inference.inference_base import NonActionInferenceEngine

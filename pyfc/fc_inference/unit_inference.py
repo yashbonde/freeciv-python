@@ -4,43 +4,47 @@ Freeciv Inference - Units
 @yashbonde - 15.01.2019
 '''
 
-class UnitInferenceEngine(object):
-	'''
-	This is a single inference engine that is loaded by the InferenceHandler. Often
-	the functions of this will be called by the client directly. Whenever an action 
-	is taken, we change an attribute self.action_taken.
+# importing the dependencies
+import numpy as np
 
-	Moreover in this iteration of the project the IO handler is given to each engine
-	so it can make actions and also send the information to the server on it's own.
+# custom
+from .inference_base import ActionInferenceEngine
+
+
+class UnitInferenceEngine(ActionInferenceEngine):
 	'''
-	def __init__(self, fcio):
+	'''
+	def __init__(self, state_init, fcio, unk_id):
+		ActionInferenceEngine.__init__(state_init)
 		self.fcio = fcio
-
-		self.pos_actions = None # dict of possible_actions
+		self.unk_id = unk_id
 
 	def _convert_action_to_packet(self, action):
 		'''
-		Convert the action to packet to be sent
+		Function to convert the input action into string packet information
+		Args:
+			action: ??
+
+		Returns:
+			pack: string to be sent to the server
 		'''
 		return pack
 
-	def take_action(self, act):
+	def take_action(self, action):
 		'''
-		This function is called when the client takes an action. Following are the 
-		steps that happen here:
-			1. The act integer is mapped to actual action
-			2. The information is then converted to actual string to be sent
-			3. The setring is sent using the given fcio[_manager]
+		take any action
+		Args:
+			action: int for the actions
 		'''
-		action = self.pos_actions[act]
-		pack = self._convert_action_to_packet(action)
-		self.fcio.send_unit_action_packet(pack)
+		self.action_mapped = self.ACTION_MAP[action]
+		pack = self._convert_action_to_packet(self.action_mapped)
+		self.fcio.send_packet(pack)
+		self.action_taken = True
 
-		self.fcio.new_state_waiting = True 
+	def actions_list(self):
+		return self.unit_actions
 
-	def take_random_action(self):
-		# in this function a random action of all the possible actions is taken
-		pass
+	def take_random_actions(self):
+		action = np.random.randint(self.UNIT_ACTION_SPACE)
+		self.take_action(action)
 
-	def get_possible_actions(self):
-		return self.pos_actions

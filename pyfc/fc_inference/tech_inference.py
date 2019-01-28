@@ -7,5 +7,6 @@ tech_inference.py
 from inference_base import ActionInferenceEngine
 
 class TechInferenceEngine(ActionInferenceEngine):
-	def __init__(self, fcio, **kwargs):
+	def __init__(self, state_init, fcio):
+		ActionInferenceEngine.__init__(state_init)
 		self.fcio = fcio

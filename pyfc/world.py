@@ -6,12 +6,11 @@ This is the file that will be imported by the client bot
 @yashbonde - 15.01.2019
 '''
 
-from pyfc.inference_handler import InferenceHandler
+from .inference_handler import InferenceHandler
 
-from utils import fc_utils
-
-from utils.attr_handler import attrHandler
-from utils.display_utils import show_status
+# utils
+from .utils.attr_handler import attrHandler
+from .utils.display_utils import show_status
 
 class World(object):
 	def __init__(self):

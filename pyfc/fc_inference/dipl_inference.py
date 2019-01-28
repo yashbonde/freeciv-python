@@ -4,7 +4,7 @@ dipl_inference.py
 @yashbonde - 19.01.2019
 '''
 
-from inference_base import ActionInferenceEngine
+from .inference_base import ActionInferenceEngine
 
 class DiplInferenceEngine(ActionInferenceEngine):
 	'''
@@ -13,4 +13,5 @@ class DiplInferenceEngine(ActionInferenceEngine):
 	all the diplomacy.
 	'''
 	def __init__(self, fcio, init_state):
+		ActionInferenceEngine.__init__(init_state)
 		self.fcio = fcio
