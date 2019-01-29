@@ -1,0 +1,5 @@
+# ipython notebooks
+*.ipynb
+
+# remove __pycache__ files generated during use
+*.pyc
