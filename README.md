@@ -12,6 +12,8 @@ I have shifted most of my work in freeciv to a seperate [repo](https://github.co
 
 This environment will single handedly be one of the most difficult open-sourced learning environments. I aim to make this at the forefront of deep RL research, to push the boundaries of what can be done. The end goal is to create an agent which can learn by itself (also creating the baseline model as this develops).
 
+We also regulate the version number and count to make it most efective, currenty we are on version `0.4` corresponding with the percentage of work done. Version `1.0` is what we want make the first release version. 
+
 ## Installing The Game
 
 You can install the game from the main [repo](https://github.com/freeciv/freeciv) by looking at the INSTALL in docs. Though this is a bit tricky on macOS and requires installation of various packages.
