@@ -5,13 +5,13 @@ minigames.py
 '''
 
 # importing the dependencies
-from minigame_cfg import minigameConfig
+from .minigame_cfg import minigameConfig
 
 from ..utils.config_utils import read_config_file_from_path
 from ..utils.attr_handler import attrHandler
-from ..utils.game_utils import REQ_GAME_ATTR
+from ..utils.attr_lists import REQ_GAME_ATTR
 
-class minigamesBaseClass(object):
+class MiniGames(object):
 	def __init__(self, log = None):
 		self.log = log
 

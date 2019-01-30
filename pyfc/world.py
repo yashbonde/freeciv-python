@@ -9,8 +9,9 @@ This is the file that will be imported by the client bot
 from .inference_handler import InferenceHandler
 
 # utils
-from .utils.attr_handler import attrHandler
+from .utils.attr_handler import AttrHandler
 from .utils.display_utils import show_status
+from .utils.config_utils import read_config_file, write_config_file
 
 class World(object):
 	def __init__(self):
@@ -27,7 +28,7 @@ class World(object):
 		self.unit2key = None # dictionary converting int key to string key
 
 		# Core back attributes
-		self.GameATTR = attrHandler
+		self.GameATTR = AttrHandler
 		self.masterHandler = InferenceHandler
 
 	### BASE FUNCTIONS ####
@@ -36,14 +37,14 @@ class World(object):
 	names should start with underscore
 	'''
 
-	def _save_game():
+	def _save_game(self):
 		'''
 		This is the function that saves the game periodically
 		'''
 		self.masterHandler.save_game()
 		pass
 
-	def _set_attributes_from_ifHandler():
+	def _set_attributes_from_ifHandler(self):
 		# once the inference handler is done inference-ing (:P)
 		pass
 
@@ -74,7 +75,7 @@ class World(object):
 		self._save_game()
 
 	#### MASTER GAME FUNCTIONS ####
-	def get_units_list():
+	def get_units_list(self):
 		'''
 		return list of all units
 		'''
@@ -90,7 +91,7 @@ class World(object):
 		'''
 		pass
 
-	def get_maps():
+	def get_maps(self):
 		return self.masterHandler.get_maps(key = 'all')
 
 
@@ -99,10 +100,12 @@ class World(object):
 	These are the functions that need (not must) to be called by the client
 	to run the game
 	'''
-	def load_from_config(self, path):
-		key2val = ead_config_file_from_path(path)
-		for key in key2val:
-			self.GameATTR.add_attr_from_dict(key2val)
+	def _load_from_dict(self, key2val):
+		if key in in key2val:
+			if key in GAME_ATTR:
+				self.GameATTR.add_attr(key, key2val[key])
+			elif key in NET_ATTR:
+				self.NetATTR.add_attr(key, key2val[key])
 
 		if self.log:
 			self.log.add_INFO('World: self attributes set')
@@ -113,12 +116,13 @@ class World(object):
 		Args:
 			path: path to the config file
 		'''
-		utils.check_format(path) # perform format check
-		self.xsize, self.ysize = utils.parse_standard_attr(path)
+		key2val = read_config_file(path)
+		self._load_from_dict(key2val)
 
-		self.pingtime, self.pingtimeout = utils.parse_rare_attr(path)
+		# if there 
 
-	def new_game(username,
+	def new_game(self,
+				 username,
 				 server_ip,
 				 server_port,
 				 **kwargs):
@@ -140,7 +144,7 @@ class World(object):
 
 		self.can_start = True
 
-	def start_game():
+	def start_game(self):
 		# to start the game that has been established
 		if self.can_start == True:
 			self._start_game()
@@ -201,7 +205,8 @@ class World(object):
 	'''
 	These are the functions that can be called by the client during gameplay
 	'''
-	def get_scorecard(plyr_id = self.plyr_id):
+	def get_scorecard(plyr_id = None):
+		plyr_id = plyr_id or self.plyr_id
 		# get scorecard of the player by id
 		print("get_scorecard() not implemented")
 

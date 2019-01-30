@@ -8,6 +8,7 @@ This is the initiator for pyfc
 
 from pyfc.version import VERSION as __version__
 from pyfc.world import World
-from pyfc.minigames import MiniGames
+from pyfc.minigames.minigames import MiniGames
 
-__all__ = ['World', 'Minigames']
+__all__ = ['World', 'MiniGames']
+name = 'pyfc'

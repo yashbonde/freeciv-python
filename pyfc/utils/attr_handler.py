@@ -4,7 +4,7 @@ attr_handler.py
 @yashbonde 20.01.2019
 '''
 
-class attrHandler():
+class AttrHandler():
 	'''
 	Simple class file for handling the attributes
 	'''

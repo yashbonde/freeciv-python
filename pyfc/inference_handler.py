@@ -14,21 +14,21 @@ import logging
 
 # importing the custom handlers
 from .fc_inference.city_inference import CityInferenceEngine # city
-from .fc_inference.dipl_inferface import DiplInferenceEngine # dipl
+from .fc_inference.dipl_inference import DiplInferenceEngine # dipl
 from .fc_inference.gov_inference import GovInferenceEngine # gov
-from .fc_inference.maps_inference import MapsInferenceEngine # maps
-from .fc_inference.plyr_inference import PlyrInferenceEngine # unit
+from .fc_inference.map_inference import MapInferenceEngine # maps
+from .fc_inference.plyr_inference import PlyrInferenceEngine # plyr
 from .fc_inference.tech_inference import TechInferenceEngine # tech
 from .fc_inference.unit_inference import UnitInferenceEngine # unit
 
 # importing the non gameplay classes
-from fc_inference.inference_base import NonActionInferenceEngine
+from .fc_inference.inference_base import NonActionInferenceEngine
 
 # importing connectivity module
-from connectivity.fc_iomanager import FCIOManager
+from .connectivity.fc_iomanager import FCIOManager
 
 # utils
-from utils.attr_handler import attrHandler
+from .utils.attr_handler import AttrHandler
 
 class InferenceHandler(object):
 	'''
@@ -41,7 +41,7 @@ class InferenceHandler(object):
 		self.fcio = FCIOManager()
 
 		# defining attribute class
-		self.ATTR = attrHandler()
+		self.ATTR = AttrHandler()
 
 		# all the units
 		self.unit_engines = []

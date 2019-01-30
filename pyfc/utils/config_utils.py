@@ -9,7 +9,7 @@ Functions relating to freeciv config files
 # importing the dependencies
 import ast
 
-def write_cfg_file(path, key2val, log = None):
+def write_config_file(path, key2val, log = None):
     '''
     Write config file 
     '''
@@ -31,7 +31,7 @@ def write_cfg_file(path, key2val, log = None):
     if log:
         log.add_INFO('config_utils.write_cfg_file: Config file written: {0}'.format(path))
 
-def read_config_file_from_path(path, key_list, log = None):
+def read_config_file(path, key_list, log = None):
     '''
     Read config from file
     '''
@@ -53,7 +53,7 @@ def read_config_file_from_path(path, key_list, log = None):
             
         key2val.update({key: val})
 
-    elif not all(list(key2val.keys()) == key_list):
+    if not list(key2val.keys()) == key_list:
         if log:
             log.add_INFO('config_utils.read_config_file_from_path: ValueError: Incorrect config file, minimum requirements not satisfied')
         raise ValueError('Incorrect config file, minimum requirements not satisfied')
