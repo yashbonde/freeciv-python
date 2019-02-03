@@ -11,13 +11,27 @@ from pyfc.utils.debug import print_debug
 
 # city class
 class CityInferenceEngine(ActionInferenceEngine):
+	'''
+	CityInferenceEngine is the control centre for each city. This is called by
+	the masterHandler during the operation of the game. All the functions
+	relating to a city are in here.
+	'''
 	def __init__(self, state_dict, fcio, unk_key):
-		ActionInferenceEngine.__init__(state_dict)
+		'''
+		Args:
+			state_dict: This is the initial dictionary of the state to initialise the city
+			fcio: This is the IOManager class object that is given by masterHandler to take
+				actions internally only
+			unk_key: unique key of the city
+		'''
+		super(ActionInferenceEngine, self).__init__(state_dict)
 		self.unk_key = unk_key
 		self.fcio = fcio
 
 		self.impr_attr = [t for t in self.attr if 'impr' in t.split('_')]
 		self.man_attr = [t for t in self.attr if 'manufacture' in t.split('_')]
+
+		self.owner_civ = None
 
 	'''
 	backend functions

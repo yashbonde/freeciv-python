@@ -53,12 +53,17 @@ def run_game():
         for u_ in units:
             pos_actions = u_.get_possible_actions()
 
-            # AI MODEL HERE
-            action_ = AIModel.unitNetwork.take_action(state = maps, **kwargs)
+            while u_.moves_left >= 0:     
+                # since the movement information in packets is only for 8 neighbouring 
+                # blocks we need to make multiple actions to get to any particular
+                # loaction
 
-            u_.take_action(action_) # take action
+                # AI MODEL HERE
+                action_ = AIModel.unitNetwork.take_action(state = maps, **kwargs)
 
-            state = world.update()
+                u_.take_action(action_) # take action
+
+                state = world.update()
 
         # iterate over cities
         cities = world.get_cities()
@@ -76,6 +81,4 @@ def run_game():
     # some other information that we would like from the world
     print(world.network_info())
     print(world.ruleset_info())
-    print(world.)
-
 

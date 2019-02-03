@@ -12,8 +12,14 @@ from .inference_handler import InferenceHandler
 from .utils.attr_handler import AttrHandler
 from .utils.display_utils import show_status
 from .utils.config_utils import read_config_file, write_config_file
+from .utils.attr_lists import REQ_GAME_ATTR
 
 class World(object):
+	'''
+	Python binding for Freeciv 3.1
+
+	Implementation details and specs are given in READMEs
+	'''
 	def __init__(self):
 		'''
 		This is where we initialize the main class 
@@ -74,7 +80,10 @@ class World(object):
 		'''
 		self._save_game()
 
-	#### MASTER GAME FUNCTIONS ####
+	#### MAIN FUNCTIONS (GAMEPLAY) ####
+	'''
+	These are the functions that are related to gameplay
+	'''
 	def get_units_list(self):
 		'''
 		return list of all units
@@ -83,7 +92,7 @@ class World(object):
 
 	def get_unit_by_key(self, key):
 		return self.masterHandler.get_units_list(key = self.unit2key[key])
-
+		
 
 	def show_unit_status(self, unit):
 		'''
@@ -101,7 +110,7 @@ class World(object):
 	to run the game
 	'''
 	def _load_from_dict(self, key2val):
-		if key in in key2val:
+		if key in key2val:
 			if key in GAME_ATTR:
 				self.GameATTR.add_attr(key, key2val[key])
 			elif key in NET_ATTR:
@@ -116,7 +125,7 @@ class World(object):
 		Args:
 			path: path to the config file
 		'''
-		key2val = read_config_file(path)
+		key2val = read_config_file(path = path, key_list = REQ_GAME_ATTR)
 		self._load_from_dict(key2val)
 
 		# if there 
@@ -179,6 +188,10 @@ class World(object):
 		# to end the current game and delete the data
 		self.is_running = False
 		print("end_game() not implemented")
+
+
+	### MAIN FUNCTIONS (GAMEPLAY) ###
+	def get_unit
 
 
 	# =====================================

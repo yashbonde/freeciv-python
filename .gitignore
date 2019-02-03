@@ -3,3 +3,7 @@
 
 # remove __pycache__ files generated during use
 *.pyc
+
+# remove gameplay files
+*.npy
+*.json

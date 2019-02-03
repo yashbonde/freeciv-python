@@ -9,7 +9,10 @@ This file has the FCIOManager class
 # importing the dependencies
 import json
 
-class FCIOManager(object):
+# custom
+
+
+class FCIOManager():
 	'''
 	IOM Base has the conneci
 	'''
