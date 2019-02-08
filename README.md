@@ -8,6 +8,12 @@ This is the official python environment for [Freeciv 3.1](http://freeciv.org) fo
 
 I have shifted most of my work in freeciv to a seperate [repo](https://github.com/yashbonde/freeciv-related) and kept only the source files here. For some research materials go to `/research-papers` folder in the other repo. The code base is initially designed for freeciv-desktop version but it will be modular enough so we can plug it to freeciv-web version as well.
 
+## Sample
+
+Given below is a sample action replay of an agent moving around in the world. `Status` refers to the area explored and `Explored Terrain` is what it sees moving around in the world.
+
+![alt_text](https://github.com/yashbonde/freeciv-python/blob/master/images/sample_replay.gif)
+
 ## Vision
 
 This environment will single handedly be one of the most difficult open-sourced learning environments. I aim to make this at the forefront of deep RL research, to push the boundaries of what can be done. The end goal is to create an agent which can learn by itself (also creating the baseline model as this develops).
