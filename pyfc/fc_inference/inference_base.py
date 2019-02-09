@@ -19,9 +19,7 @@ class ActionInferenceEngine(object):
     implemented
     '''
     def __init__(self, state_dict):
-        self.attr = list(state_dict.keys())
-        for key in state_dict:
-            setattr(self, key, state_dict[key])
+        self.state_keys = list(state_dict.keys())
 
     '''
     STATE:
@@ -30,24 +28,18 @@ class ActionInferenceEngine(object):
     '''
 
     # Some basic functions to have in each action base class
-    def show_status_state(self):
+    def show_status(self):
         # print state attribute values
-        for i, attr in enumerate(self.attr):
-            t = "[{0}] {1}: {2}".format(i, attr, getattr(self, attr))
-            print(t)
+        print('=== STATUS (UNIT) ===')
+        for i, attr in enumerate(self.state_keys):
+            print("[{0}] {1}: {2}".format(i, attr, getattr(self, attr)))
 
     def RAW_state(self):
         # return the dictionary of state for this object
         raw_state = {}
-        for attr in self.attr:
+        for attr in self.state_keys:
             raw_state[attr] = getattr(self, attr)
         return raw_state
-
-    def update_state(self, state_dict):
-        # when move is over and another 'state' and 'action' come
-        # this is used to update 'state'
-        for key in state_dict:
-            setattr(self, key, state_dict[key])
 
     '''
     ACTIONS:
@@ -82,6 +74,15 @@ class ActionInferenceEngine(object):
     def update_action(self):
         # when move is over and another 'state' and 'action' come
         # this is used to update 'action'
+        raise NotImplementedError
+
+    def take_random_action(self):
+        raise NotImplementedError
+
+    def update(self, state_, actions_):
+        raise NotImplementedError
+
+    def sample(self):
         raise NotImplementedError
 
 class NonActionInferenceEngine(object):

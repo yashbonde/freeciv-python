@@ -16,68 +16,63 @@ class AIModel():
 
 # running the game
 def run_game():
+    # make world
     world = pyfc.World()
+    world.new_game(username = 'LutaNet', server_ip = '127.0.0.1', port = 5004)
 
-    world.load_from_config('./scenarios/sample.fccfg')
+    # CAN ALSO INITIALIZE MINIGAME
+    # print(pyfc.MiniGames.minigames)
+    # minigame = pyfc.MiniGames.MAP_EXPLORER
+    # world.initialize_minigame(minigame)
 
-    world.new_game(username = 'yashbonde',
-        server_ip = '127.0.0.1',
-        port = 5000,
-        ruleset = 'Classic',
-        topology = 'ISO',
-        aifill = 2,
-        xsize = 16,
-        ysize = 16)
+    # define engines
+    gov = world.Government
+    tech = world.Technology
+    opp = world.Opponents
+    dipl = world.Diplomacy
 
-    # === to use minigames
-    # to get a list of minigames
-    print(pyfc.MiniGames.games)
-    game = pyfc.MiniGames.load_minigame('BULBRESEARCH_100')
-    world.new_minigame(game)
-
-    state_map = world.start_game()
+    # get initial maps
+    map_terrain, map_extras, map_status = world.start_game()
 
     while world.is_running():
-        # get maps
-        state_map = world.get_maps()
-
-        # get units
-        units = world.get_all_units(type = 'all')      # all units
-        units = world.get_all_units(type = 'auto')     # units in auto mode
-
-        # default
-        units = world.get_all_units() # units being controlled (non-auto units)
-
-        unit = world.get_unit_by_key(key = 12)
-
-        for u_ in units:
-            pos_actions = u_.get_possible_actions()
-
-            while u_.moves_left >= 0:     
-                # since the movement information in packets is only for 8 neighbouring 
-                # blocks we need to make multiple actions to get to any particular
-                # loaction
-
-                # AI MODEL HERE
-                action_ = AIModel.unitNetwork.take_action(state = maps, **kwargs)
-
-                u_.take_action(action_) # take action
-
-                state = world.update()
-
-        # iterate over cities
-        cities = world.get_cities()
-
-        for c_ in cities:
-            pos_actions_city = c_.get_possible_actions()
-
-            # AI MODEL HERE
-            action_ = AIModel.cityNetwork.take_action(state = state)
-
-            c_.take_action(action_)
-
-            state = world.update()
-
+        # go over units
+        for unit in world.get_units():
+            while unit.can_take_action():
+                # action_mask tells which actions can be taken
+                obs, action_mask = unit.observe()
+                action = unit.sample() # sample an action for now, put AI here
+                map_status, map_terrain, map_specials = world.take_action(unit, action)
+                
+        # go over cities
+        for city in world.get_cities():
+            # action_mask tells which actions can be taken
+            obs, action_mask = city.observe()
+            action = city.sample() # sample an action for now, put AI here
+            map_status, map_terrain, map_specials = world.take_action(city, action)
+       
+        # if want to go over other engines as well
+        
+        # government
+        obs, action_mask = gov.observe()
+        action = gov.sample() # sample an action for now, put AI here
+        map_status, map_terrain, map_specials = world.step(gov, action)
+        
+        # technology
+        obs, action_mask = tech.observe()
+        action = tech.sample() # sample an action for now, put AI here
+        map_status, map_terrain, map_specials = world.step(tech, action)
+        
+        # diplomacy
+        obs, action_mask = dipl.observe()
+        action = dipl.sample() # sample an action for now, put AI here
+        map_status, map_terrain, map_specials = world.step(dipl, action)
+        
+        # opponents
+        for player in opponents.get_player():
+            obs, action_mask = player.observe()
+            action = player.sample() # sample an action for now, put AI here
+            map_status, map_terrain, map_specials = world.step(player, action) 
+    
     # some other information that we would like from the world
     print(world.network_info())
     print(world.ruleset_info())

@@ -7,3 +7,9 @@
 # remove gameplay files
 *.npy
 *.json
+
+# remove images
+*.png
+
+# remove anything in examples folder
+/examples/*

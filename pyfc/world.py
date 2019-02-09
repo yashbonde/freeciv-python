@@ -3,6 +3,14 @@ world.py
 
 This is the file that will be imported by the client bot
 
+Currently this is in pre-alpha MVP Stage: for now we are only interested in
+showing that this thing can work. For this following functionalities has not
+been added yet:
+
+* load and save game
+* logging functionality
+* config files (network, game)
+
 @yashbonde - 15.01.2019
 '''
 
@@ -12,219 +20,174 @@ from .inference_handler import InferenceHandler
 from .utils.attr_handler import AttrHandler
 from .utils.display_utils import show_status
 from .utils.config_utils import read_config_file, write_config_file
-from .utils.attr_lists import REQ_GAME_ATTR
 
 class World(object):
-	'''
-	Python binding for Freeciv 3.1
+    '''
+    Python binding for Freeciv 3.1
 
-	Implementation details and specs are given in READMEs
-	'''
-	def __init__(self):
-		'''
-		This is where we initialize the main class 
-		Args:
-		'''
-		# Core gameplay attributes - game attributes
-		self.plyr_civ = None
+    Implementation details and specs are given in READMEs
+    '''
+    def __init__(self, reward_handler = None):
+        '''
+        This is where we initialize the main class 
+        Args:
+            reward_handler: custom reward class file (use default)
+        '''
+        # main attributes
+        self.moves = 0
+        self.turns = 0
 
-		# Core gameplay attributes (ops) - game attributes that are for the game mech
-		self.is_running = False
-		self.plyr_id = None # player ID given by the server
-		self.unit2key = None # dictionary converting int key to string key
+        # Core gameplay attributes (ops) - game attributes that are for the game mech
+        self.is_running = False
+        self.plyr_id = None # player ID given by the server
 
-		# Core back attributes
-		self.GameATTR = AttrHandler
-		self.masterHandler = InferenceHandler
+        # establish reward handler
+        if not reward_handler:
+            from .rewards.reward_handler import RewardHandlerDefault
+            self.Rewards = RewardHandlerDefault()
 
-	### BASE FUNCTIONS ####
-	'''
-	These are the functions that run in the standard loop. All the functions
-	names should start with underscore
-	'''
+        # Core back attributes
+        self.GameATTR = AttrHandler()
+        self.masterHandler = InferenceHandler(self.Rewards)
 
-	def _save_game(self):
-		'''
-		This is the function that saves the game periodically
-		'''
-		self.masterHandler.save_game()
-		pass
+    '''
+    BACKEND FUNCTIONS
+    =================
+    '''
 
-	def _set_attributes_from_ifHandler(self):
-		# once the inference handler is done inference-ing (:P)
-		pass
+    def _update(self):
+        self.is_running = self.masterHandler.update()
+        self.moves += 1
 
-	def _show_infr_handler_status(self):
-		attr_value_dict = self.masterHandler.ATTR.get_attr_value_dict()
-		show_status('InferenceHandler', attr_value_dict)
+    def _fetch_maps(self):
+        # do we need to check if their are new maps or can aleviate system
+        # pressure here since we knwo that some of the actions will not
+        # result in any change in the maps
+        return self.masterHandler._fetch_maps()
 
-	def _show_world_status(self):
-		attr_value_dict = self.ATTR.get_attr_value_dict()
-		show_status('World', attr_value_dict)
+    def _save_log(self):
+        raise NotImplementedError       
 
-	def _show_network_status(self):
-		attr_value_dict = self.masterHandler.fcio.ATTR.get_attr_value_dict()
-		show_status('Network', attr_value_dict)
-		
+    '''
+    GAMEPLAY FUNCTIONS
+    ==================
+    '''
 
+    def get_cities(self):
+        return list(self.masterHandler.cities.values())
 
-	## BASE FUNCTION OVERRIDERS ##
-	'''
-	These are the functions that can be called by the client as his wish, these are same
-	as the base functions but override the 
-	'''
-	
-	def save_game(force):
-		'''
-		This overrides the save loop by calling _save_game() function
-		'''
-		self._save_game()
-
-	#### MAIN FUNCTIONS (GAMEPLAY) ####
-	'''
-	These are the functions that are related to gameplay
-	'''
-	def get_units_list(self):
-		'''
-		return list of all units
-		'''
-		return self.masterHandler.get_units_list(key = 'all')
-
-	def get_unit_by_key(self, key):
-		return self.masterHandler.get_units_list(key = self.unit2key[key])
-		
-
-	def show_unit_status(self, unit):
-		'''
-		Show the status and details of unit (int)
-		'''
-		pass
-
-	def get_maps(self):
-		return self.masterHandler.get_maps(key = 'all')
+    def get_units(self):
+        return list(self.masterHandler.units.values())
 
 
-	### MAIN FUNCTIONS (NON_GAMEPLAY) ###
-	'''
-	These are the functions that need (not must) to be called by the client
-	to run the game
-	'''
-	def _load_from_dict(self, key2val):
-		if key in key2val:
-			if key in GAME_ATTR:
-				self.GameATTR.add_attr(key, key2val[key])
-			elif key in NET_ATTR:
-				self.NetATTR.add_attr(key, key2val[key])
+    '''
+    FRONTEND FUNCTIONS
+    ==================
+    '''
 
-		if self.log:
-			self.log.add_INFO('World: self attributes set')
+    def new_game(self,
+                 username,
+                 server_ip,
+                 port,
+                 save_game_every = 4,
+                 log_folder = './experiments/'):
+        '''
+        This is the functions that the user calls to start the game.
+        Args:
+            username: username to send to server
+            server_ip: string of host server ip
+            port: port to connect to host server
+            save_game_every: save game every these moves
+            log_folder: folder to sae the game logs in
+        '''
+        # set attributes
+        self.save_game_every = save_game_every
+        self.log_folder = log_folder
 
-	def new_game_from_config(self, path, **kwargs):
-		'''
-		Load the game from config file
-		Args:
-			path: path to the config file
-		'''
-		key2val = read_config_file(path = path, key_list = REQ_GAME_ATTR)
-		self._load_from_dict(key2val)
+        self.masterHandler.new_game(username = username,
+                server_ip = server_ip,
+                server_port = port)
 
-		# if there 
+    def new_game_from_config(self,
+                             path,
+                             username = None,
+                             server_ip = None,
+                             port = None):
+        self._load_game_config_from_path(path)
 
-	def new_game(self,
-				 username,
-				 server_ip,
-				 server_port,
-				 **kwargs):
-		'''
-		This function is called to start the new game, the parameters passed through this
-		override the ones set using config file.
-		
-		Args:
-			username: username of the bot to register on server
-			server_ip: IP address of the server
-			server_port: port of the server
-			ruleset: ruleset to be used
-			topology: 
-		'''
-		self.new_game_from_config(path = 'default.fccfg', **kwargs)
+        if username:
+            config.username = username
 
-		# once most of the attributes are loaded we establish the connection
-		self.est_conn(username = username, server_ip = server_ip, server_port = server_port)
+        if server_ip:
+            config.server_ip = server_ip
 
-		self.can_start = True
+        if port:
+            config.port = port
 
-	def start_game(self):
-		# to start the game that has been established
-		if self.can_start == True:
-			self._start_game()
-		else:
-			raise ValueError("System not setup for initialization. Kindly check the values!")
+        self.masterHandler.load_game_from_config(self.config)
 
-		self.is_running = True
-		init_state = self.masterHandler.start_game()
+    def start_game(self):
+        # start the game first
+        self.masterHandler.start_game()
+        
+        # establish connection to engines second
+        self.Government = self.masterHandler.infr_gov
+        self.Diplomacy = self.masterHandler.infr_dipl
+        self.Technology = self.masterHandler.infr_tech
+        self.Opponents = self.masterHandler.infr_plyr
+        self.Client = self.masterHandler.infr_client
+        self.GameInfo = self.masterHandler.infr_game
+        self.Options = self.masterHandler.infr_optns
+        self.Rules = self.masterHandler.infr_rules
 
-		# this function returns the initial map
-		return init_state
+        return self._fetch_maps()
 
-	def load_saved_game(self, path):
-		self.masterHandler.load_saved_game(path)
+    def take_action(self, obj, action):
+        '''
+        This is the final structure that I am finalising and working from now on.
+        The idea is like this, the individual take_action() functions in each
+        InferenceEngine will still exist but now they will be handled by World and
+        not user directly.
 
-	def update():
-		# check if needed to save game
-		if self.GAME_TURN % self.save_game_every == 0:
-			self._save_game()
+        This way we avoid using world.update() again and again
+        '''
+        obj._take_action(action)
+        self._update() # this has auto updates
 
-		up_res = masterHandler.update()
-		if up_res == 0:
-			# game state 0 means the game has ended
-			self.is_running = False
+        if self.moves % self.save_game_every == 0:
+            self._save_game()
 
-		elif up_res == 1:
-			print('The network connection dropped (trying again)...')
-			self.masterHandler.debug_network()
-			print('... Success! Network Connection Re-established.')
+        # self._save_log()
 
-	def end_game(save = True):
-		# to end the current game and delete the data
-		self.is_running = False
-		print("end_game() not implemented")
+        return self._fetch_maps() # simply return what are the latest fetched maps
+
+    def save_game(self, path):
+        self.masterHandler._save_game(path)
+
+    def load_game(self, path):
+        self.masterHandler._load_game(path)
+
+    def reset(self):
+        # reset values
+        self.num_turns = 0
+        self.num_moves = 0
+        self.is_running = False
+        self.Rewards.reset()
+
+        # reset InferenceHandler
+        self.masterHandler._reset()
+
+        # start new game
+        self.new_game()
 
 
-	### MAIN FUNCTIONS (GAMEPLAY) ###
-	def get_unit
+    '''
+    SHOW FUNCTIONS
+    ==============
+    '''
 
+    def show_network_status(self):
+        raise NotImplementedError
 
-	# =====================================
-	# Non Action Inference Engine Functions
-	# =====================================
-
-	def civ_client_status(self):
-		# client inference engine
-		self.masterHandler.infr_client.show_status()
-
-	def civ_game_status(self):
-		# game inference engine
-		self.masterHandler.infr_game.show_status()
-
-	def civ_options_status(self):
-		# Options inference engine
-		self.masterHandler.infr_optns.show_status()
-
-	def civ_rules_status(self):
-		# Rules inference engine
-		self.masterHandler.infr_rules.show_status()
-
-	## AUXILARY FUNCTIONS ##
-	'''
-	These are the functions that can be called by the client during gameplay
-	'''
-	def get_scorecard(plyr_id = None):
-		plyr_id = plyr_id or self.plyr_id
-		# get scorecard of the player by id
-		print("get_scorecard() not implemented")
-
-	def reset():
-		# here check state
-		# only if it is possible to reset, reset the game
-		print("reset() not implemented")
-
+    def show_config_status(self):
+        raise NotImplementedError

@@ -4,32 +4,36 @@ gov_inference.py
 @yashbonde - 19.01.2019
 '''
 
-from .inference_base import ActionInferenceEngine
+# imporing dependencies
+import numpy as np # faster handling
 
-class GovInferenceEngine(ActionInferenceEngine):
+# class
+class GovInferenceEngine():
     '''
     This class handles the 'government' element of the game. There are only 6 total
     actions that can be taken. A single engine is used to run through the game
     '''
-    def __init__(self, init_state, action_dict, fcio):
-        ActionInferenceEngine.__init__(init_state, action_dict)
+    def __init__(self, init_state, init_action, fcio, reward_handler):
         self.fcio = fcio
-
-        self.gov_style = ['Anarchy', 'Communism', 'Democracy', 'Despotism', 'Monarchy', 'Republic']
-        self.action_list = ['change_gov_Anarchy', 'change_gov_Communism', 'change_gov_Democracy',
-                            'change_gov_Despotism', 'change_gov_Monarchy', 'change_gov_Republic']
+        self._Rewards = reward_handler
         
-        self.act_dict = {} # this is the dictionary sent to fcio
+        self.list_action_names = list(init_state.keys())
+        self.gov_style = ['Anarchy', 'Communism', 'Democracy', 'Despotism', 'Monarchy', 'Republic']
 
-        self.possible_actions = action_dict
+        self._vec_state = np.zeros([1], dtype = np.float32)
+        self._vec_action = np.zeros([len(init_action['0'])], dtype = np.float32)
+
+        self._act_dict = {}
+
+        self.update(init_state, init_action)
 
     # backend functions
 
     def _cvt_act_dict(self, x):
         if isinstance(x, int):
-            self.act_dict[self.action_list[x]] = True
+            self._act_dict[self.list_action_names[x]] = True
         elif isinstance(x, str):
-            self.act_dict[x] = True
+            self._act_dict[x] = True
         else:
             raise ValueError('cannot convert requested input to action dictionary, requested {0}'.format(x))
 
@@ -37,38 +41,49 @@ class GovInferenceEngine(ActionInferenceEngine):
         if x and isinstance(x, dict):
             self.fcio.send_action_dict(x)
         elif x:
-            raise ValueError('trying to send {0} to fcio ')
+            raise ValueError('trying to send {0} to fcio'.format(type(x)))
         else:
-            self.fcio.send_action_dict(self.act_dict)
+            self.fcio.send_action_dict(self._act_dict)
 
     def _can_take_action(self, action_id):
         return True if self.possible_actions[action_id] else False
 
-    # frontend functions
+    ## frontend functions
 
-    def init_action(self, action_dict):
-        self.possible_actions = action_dict
+    # state
+    def update_state(self, state_):
+        for k,v in state_.items():
+            setattr(self, k, v)
+        self._vec_state[0] = state_['id']
 
-    def get_actions(self):
+    def observe(self):
+        state = np.expand_dims(self._vec_state, axis = 0)
+        action_mask = np.expand_dims(self._vec_action, axis = 0)
+        return state, action_mask
+
+    # action
+    def update_action(self, action_):
+        self._vec_action[:] = list(action_.values())
+
+    def action_names(self):
         # return list
-        return self.action_list
+        return self.list_action_names
 
     def take_action(self, action):
-        action_id = self.action_list[action]
-        if self._can_take_action(action_id):
+        raise NotImplementedError('unknown packet structure for Government')
+        if self._vec_action[action]:
             act_dict = self._cvt_act_dict(action_id)
             self._send_dict_fcio()
             return True
         else:
             return False
 
-    def update_actions(self, action_dict):
-        self.possible_actions = action_dict
 
-    def get_info(self):
-        return self.helptext
+    def update(self, state_, action_):
+        self.update_state(state_)
+        self.update_action(action_['0']) # '0' is action key for us
 
-    # anither way to use this is by directly using keys instead of action integers
+    # another way to use this is by directly using keys instead of action integers
 
     def get_gov_type(self):
         return self.gov_style
@@ -85,4 +100,3 @@ class GovInferenceEngine(ActionInferenceEngine):
             return True
         else:
             return False
-
