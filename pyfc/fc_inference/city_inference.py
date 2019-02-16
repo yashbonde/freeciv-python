@@ -14,7 +14,7 @@ class CityInferenceEngine():
     the masterHandler during the operation of the game. All the functions
     relating to a city are in here.
     '''
-    def __init__(self, init_state, init_actions, fcio, city_id, reward_handler):
+    def __init__(self, init_state, init_action, fcio, city_id, reward_handler):
         '''
         Args:
             state_dict: This is the initial dictionary of the state to initialise the city
@@ -25,25 +25,30 @@ class CityInferenceEngine():
         
         self.fcio = fcio
         self.city_id = city_id
-        self._Rewards = reward_handler # don't do anything with this right now 
+        self._Reward = reward_handler # don't do anything with this right now 
         # for MVP will be using player scores
 
-        self.list_action_names = list(init_actions.keys())
+        self.list_action_names = list(init_action.keys())
 
         self.name_change_dict = {}
 
         self._vec_state = np.zeros([len(init_state)], dtype = np.float32)
-        self._vec_action = np.zeros([len(init_actions)], dtype = np.float32)
+        self._vec_action = np.zeros([len(init_action)], dtype = np.float32)
 
         self._act_dict = {'city_id': self.city_id, 'action_id': None}
 
-        self.update(init_state, init_actions)
+        self.update(init_state, init_action)
 
+        self.impr_attr = [t for t in list(init_state.keys()) if 'impr' in t.split('_')]
+        self.man_attr = [t for t in list(init_state.keys()) if 'manufacture' in t.split('_')]
 
-        self.impr_attr = [t for t in self.attr if 'impr' in t.split('_')]
-        self.man_attr = [t for t in self.attr if 'manufacture' in t.split('_')]
+    # Backend function
+    def _send_dict_fcio(self, x):
+        self.fcio.send_dict(x)
 
-    def update_state(state_):
+    # Core functions
+
+    def update_state(self, state_):
         self._vec_state[:] = list(state_.values())
         for k, v in state_.items():
             try:
@@ -51,27 +56,30 @@ class CityInferenceEngine():
             except:
                 setattr(self, k, v)
 
+    def update_action(self, actions_):
+        self._vec_action[:] = list(actions_.values())
+
+    def update(self, state_, action_):
+        self.update_state(state_)
+        self.update_action(action_)
+
     def observe(self):
         state = np.expand_dims(self._vec_state, axis = 0)
         action_mask = np.expand_dims(self._vec_action, axis = 0)
         return state, action_mask
 
-    def update_actions(self, actions_):
-        self._vec_action[:] = list(actions_.values())
-
-    def update(state_, action_):
-        self.update_state(state_)
-        self.update_action(action_)
-
     def take_action(self, action):
         self._act_dict['action_id'] = self.list_action_names[action]
-        self.fcio.send(self._act_dict)
+        self._send_dict_fcio(self._act_dict)
 
     def sample(self):
         return np.random.randint(len(self.list_action_names))
 
-    def take_random_action(self):
-        self.take_action(self.sample)
+    def safe_sample(self):
+        # return sample action from those which are possible
+        safe_idx = (np.arange(len(self._vec_action)) + 1) * self._vec_action
+        safe_idx = safe_idx[safe_idx > 0.]
+        return int(np.random.choice(safe_idx) - 1)
 
     '''
     backend functions

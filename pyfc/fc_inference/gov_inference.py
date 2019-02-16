@@ -15,7 +15,7 @@ class GovInferenceEngine():
     '''
     def __init__(self, init_state, init_action, fcio, reward_handler):
         self.fcio = fcio
-        self._Rewards = reward_handler
+        self._Reward = reward_handler
         
         self.list_action_names = list(init_state.keys())
         self.gov_style = ['Anarchy', 'Communism', 'Democracy', 'Despotism', 'Monarchy', 'Republic']
@@ -37,37 +37,30 @@ class GovInferenceEngine():
         else:
             raise ValueError('cannot convert requested input to action dictionary, requested {0}'.format(x))
 
-    def _send_dict_fcio(self, x = None):
-        if x and isinstance(x, dict):
-            self.fcio.send_action_dict(x)
-        elif x:
-            raise ValueError('trying to send {0} to fcio'.format(type(x)))
-        else:
-            self.fcio.send_action_dict(self._act_dict)
+    def _send_dict_fcio(self, x):
+        self.fcio.send_dict(x)
 
     def _can_take_action(self, action_id):
         return True if self.possible_actions[action_id] else False
 
-    ## frontend functions
+    # Core functions
 
-    # state
     def update_state(self, state_):
         for k,v in state_.items():
             setattr(self, k, v)
         self._vec_state[0] = state_['id']
 
+    def update_action(self, action_):
+        self._vec_action[:] = list(action_.values())
+
+    def update(self, state_, action_):
+        self.update_state(state_)
+        self.update_action(action_['0']) # '0' is action key for us
+
     def observe(self):
         state = np.expand_dims(self._vec_state, axis = 0)
         action_mask = np.expand_dims(self._vec_action, axis = 0)
         return state, action_mask
-
-    # action
-    def update_action(self, action_):
-        self._vec_action[:] = list(action_.values())
-
-    def action_names(self):
-        # return list
-        return self.list_action_names
 
     def take_action(self, action):
         raise NotImplementedError('unknown packet structure for Government')
@@ -78,10 +71,20 @@ class GovInferenceEngine():
         else:
             return False
 
+    def sample(self):
+        return np.random.randint(len(self._vec_action))
 
-    def update(self, state_, action_):
-        self.update_state(state_)
-        self.update_action(action_['0']) # '0' is action key for us
+    def safe_sample(self):
+        # return sample action from those which are possible
+        safe_idx = (np.arange(len(self._vec_action)) + 1) * self._vec_action
+        safe_idx = safe_idx[safe_idx > 0.]
+        return int(np.random.choice(safe_idx) - 1)
+
+    # Non Core functions
+
+    def action_names(self):
+        # return list
+        return self.list_action_names
 
     # another way to use this is by directly using keys instead of action integers
 

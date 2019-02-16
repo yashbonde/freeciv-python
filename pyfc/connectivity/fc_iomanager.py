@@ -32,7 +32,7 @@ class FCIOManager():
     '''
     Functions that IOM_Base must have
     '''
-    def send(self, action_dict):
+    def send_dict(self, action_dict):
         # function to pass the input string to the server
         string = json.dumps(action_dict)
         self.IOManager.send_json(string)

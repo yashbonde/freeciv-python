@@ -92,15 +92,17 @@ class NonActionInferenceEngine(object):
     a simple class to set and show status is good enough.
     '''
     def __init__(self, state_dict):
-        self.attr = []
-        for key in state_dict:
-            setattr(self, key, state_dict[key])
-            self.attr.append(key)
+        self.attr = list(state_dict.keys())
+        self.update(state_dict)
 
     def show_status(self):
         for i, attr in enumerate(self.attr):
             t = "[{0}] {1}: {2}".format(i, attr, getattr(self, attr))
             print(t)
+
+    def update(self, state_):
+        for key in state_:
+            setattr(self, key, state_[key])
 
     def RAW(self):
         raw = {}

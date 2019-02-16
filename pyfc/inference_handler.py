@@ -92,7 +92,8 @@ class InferenceHandler(object):
         u_eng = UnitInferenceEngine(init_state = state_[unit_id],
             init_action = action_[unit_id],
             unit_id = unit_id,
-            fcio = self.fcio)
+            fcio = self.fcio,
+            reward_handler = self._Reward)
 
         self.units[unit_id] = u_eng
         self.unit_ids.append(unit_id)
@@ -105,9 +106,10 @@ class InferenceHandler(object):
 
     def _add_new_city(self, city_id, state_, action_):
         c_eng = CityInferenceEngine(init_state = state_[city_id],
-            init_action = action_[unit_id],
+            init_action = action_[city_id],
             city_id = city_id,
-            fcio = self.fcio)
+            fcio = self.fcio,
+            reward_handler = self._Reward)
 
         self.cities[city_id] = c_eng
         self.city_ids.append(city_id)
@@ -138,10 +140,8 @@ class InferenceHandler(object):
             self.infr_rules = NonActionInferenceEngine(state['rules'])
             return
 
-        self.infr_client.update(state_['client'])
-        self.infr_game.update(state_['game'])
-        self.infr_optns.update(state_['options'])
-        self.infr_rules.update(state_['rules'])
+        # not including code to update this as well, is there really a need to update values
+        # that are now going to help in decision making.
 
     def _update_cities(self, state_, action_):
         cities_updated = list(state_.keys())
@@ -151,7 +151,7 @@ class InferenceHandler(object):
 
         for c_id in cities_updated:
             try:
-                self.cities[c_id].update(state_, action_)
+                self.cities[c_id].update(state_[c_id], action_[c_id])
             except KeyError:
                 self._add_new_city(c_id, state_, action_)
 
@@ -163,7 +163,7 @@ class InferenceHandler(object):
 
         for u_id in units_updated: 
             try:
-                self.units[u_id].update(state_, action_)
+                self.units[u_id].update(state_[u_id], action_[u_id])
             except KeyError:
                 self._add_new_unit(u_id, state_, action_)
 

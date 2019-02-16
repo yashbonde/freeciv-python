@@ -66,7 +66,10 @@ class World(object):
         return self.masterHandler._fetch_maps()
 
     def _save_log(self):
-        raise NotImplementedError       
+        raise NotImplementedError
+
+    def _save_game(self):
+        print('[!] World._save_game() is not implemented yet...')
 
     '''
     GAMEPLAY FUNCTIONS
@@ -151,7 +154,7 @@ class World(object):
 
         This way we avoid using world.update() again and again
         '''
-        obj._take_action(action)
+        obj.take_action(action)
         self._update() # this has auto updates
 
         if self.moves % self.save_game_every == 0:
