@@ -41,37 +41,37 @@ def run_game():
                 # action_mask tells which actions can be taken
                 obs, action_mask = unit.observe()
                 action = unit.sample() # sample an action for now, put AI here
-                map_status, map_terrain, map_specials = world.take_action(unit, action)
+                map_status, map_terrain, map_specials, reward = world.take_action(unit, action)
                 
         # go over cities
         for city in world.get_cities():
             # action_mask tells which actions can be taken
             obs, action_mask = city.observe()
             action = city.sample() # sample an action for now, put AI here
-            map_status, map_terrain, map_specials = world.take_action(city, action)
+            map_status, map_terrain, map_specials, reward = world.take_action(city, action)
        
         # if want to go over other engines as well
         
         # government
         obs, action_mask = gov.observe()
         action = gov.sample() # sample an action for now, put AI here
-        map_status, map_terrain, map_specials = world.step(gov, action)
+        map_status, map_terrain, map_specials, reward = world.take_action(gov, action)
         
         # technology
         obs, action_mask = tech.observe()
         action = tech.sample() # sample an action for now, put AI here
-        map_status, map_terrain, map_specials = world.step(tech, action)
+        map_status, map_terrain, map_specials, reward = world.take_action(tech, action)
         
         # diplomacy
         obs, action_mask = dipl.observe()
         action = dipl.sample() # sample an action for now, put AI here
-        map_status, map_terrain, map_specials = world.step(dipl, action)
+        map_status, map_terrain, map_specials, reward = world.take_action(dipl, action)
         
         # opponents
         for player in opponents.get_player():
             obs, action_mask = player.observe()
             action = player.sample() # sample an action for now, put AI here
-            map_status, map_terrain, map_specials = world.step(player, action) 
+            map_status, map_terrain, map_specials, reward = world.take_action(player, action) 
     
     # some other information that we would like from the world
     print(world.network_info())

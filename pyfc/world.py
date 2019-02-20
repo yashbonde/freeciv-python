@@ -154,7 +154,7 @@ class World(object):
 
         This way we avoid using world.update() again and again
         '''
-        obj.take_action(action)
+        reward = obj.take_action(action)
         self._update() # this has auto updates
 
         if self.moves % self.save_game_every == 0:
@@ -162,7 +162,7 @@ class World(object):
 
         # self._save_log()
 
-        return self._fetch_maps() # simply return what are the latest fetched maps
+        return self._fetch_maps(), reward # simply return what are the latest fetched maps
 
     def save_game(self, path):
         self.masterHandler._save_game(path)

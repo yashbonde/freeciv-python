@@ -75,6 +75,13 @@ class TechInferenceEngine():
 
     def take_action(self, action):
         raise NotImplementedError("[!] We don't know the required packet structure for this move")
+        if self._vec_action[action]:
+            pass
+        else:
+            return False
+
+        self._Reward.latest_reward
+
 
     def sample(self):
         return np.random.randint(len(self._vec_action))

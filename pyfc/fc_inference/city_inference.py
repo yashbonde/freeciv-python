@@ -69,8 +69,13 @@ class CityInferenceEngine():
         return state, action_mask
 
     def take_action(self, action):
-        self._act_dict['action_id'] = self.list_action_names[action]
-        self._send_dict_fcio(self._act_dict)
+        if self._vec_action[action]:
+            self._act_dict['action_id'] = True
+            self._send_dict_fcio(self._act_dict)
+        else:
+            raise ValueError('cannot take requested action. refer to .observe()[1] to see a mask for possible actions')
+
+        return self._Reward.latest_reward
 
     def sample(self):
         return np.random.randint(len(self.list_action_names))

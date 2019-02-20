@@ -43,6 +43,14 @@ class DiplInferenceEngine():
         self.update_state(state_)
         self.update_action(action_)
 
+    def take_action(self, action):
+        if self._vec_action[action]:
+            raise NotImplementedError
+        else:
+            raise ValueError('cannot take requested action. refer to .observe()[1] to see a mask for possible actions')
+
+        return self._Reward.latest_reward
+
     def sample(self):
         return np.random.randint(len(self._vec_action))
 

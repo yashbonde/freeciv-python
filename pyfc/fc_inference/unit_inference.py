@@ -51,6 +51,11 @@ class UnitInferenceEngine():
     def _send_dict_fcio(self, x):
         self.fcio.send_dict(x)
 
+    def _calc_reward(self, action):
+        # currently implementing the 
+        reward = action/len(self._vec_action)
+        return reward
+
     # Core functions
 
     def update_state(self, state_):
@@ -92,6 +97,10 @@ class UnitInferenceEngine():
             # and reduces any additional load
         else:
             raise ValueError('cannot take requested action. refer to .observe()[1] to see a mask for possible actions')
+
+        self._Reward.unit_reward = self._calc_reward(action)
+
+        return self._Reward.latest_reward
 
     def sample(self):
         return np.random.randint(len(self._vec_action))

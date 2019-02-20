@@ -66,10 +66,11 @@ class GovInferenceEngine():
         raise NotImplementedError('unknown packet structure for Government')
         if self._vec_action[action]:
             act_dict = self._cvt_act_dict(action_id)
-            self._send_dict_fcio()
-            return True
+            self._send_dict_fcio(act_dict)
         else:
-            return False
+            raise ValueError('cannot take requested action. refer to .observe()[1] to see a mask for possible actions')
+
+        return self._Reward.latest_reward
 
     def sample(self):
         return np.random.randint(len(self._vec_action))
